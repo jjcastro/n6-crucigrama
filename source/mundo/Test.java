@@ -8,8 +8,6 @@ public class Test {
 		{
 			Crucigrama abc = new Crucigrama(new File("./data/crucigrama2.properties"));
 			
-			System.out.println(abc.solucion[0][10] == '$');
-			
 			// IMPRIMIR SOLUCIÓN
 			for(int i = 0; i < abc.filas; i++)
 			{
@@ -61,12 +59,20 @@ public class Test {
 			    System.out.print("\n");
 			}
 			
-			System.out.print("\n");
+			System.out.print("\nPALABRAS VERTICALES:\n");
 			
 			// IMPRIMIR PALABRAS VERTICALES
 			for(int i = 0; i < abc.palabrasV.length; i++)
 			{
 				System.out.println(abc.palabrasV[i][Crucigrama.PALABRAS] + ": " + abc.palabrasV[i][Crucigrama.DESCRIPCIONES]);
+			}
+			
+			System.out.print("\nPALABRAS HORIZONTALES:\n");
+			
+			// IMPRIMIR PALABRAS VERTICALES
+			for(int i = 0; i < abc.palabrasH.length; i++)
+			{
+				System.out.println(abc.palabrasH[i][Crucigrama.PALABRAS] + ": " + abc.palabrasH[i][Crucigrama.DESCRIPCIONES]);
 			}
 			
 		}
