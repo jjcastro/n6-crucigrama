@@ -18,7 +18,8 @@ public class Crucigrama
 	 */
 	public Crucigrama(int filas, int columnas)
 	{
-		//STUB
+		numFilas = filas;
+		numColumnas = columnas;
 	}
 	
 	/**
