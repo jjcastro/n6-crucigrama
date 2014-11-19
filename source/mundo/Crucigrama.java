@@ -6,21 +6,25 @@ import java.util.Properties;
 
 public class Crucigrama
 {
+	public static final int HORIZONTALES = 0;
+	public static final int VERTICALES = 1;
+	
+	public static final int PALABRAS = 0;
+	public static final int DESCRIPCIONES = 1;
+	
 	private Properties propiedades;
 	
 	public int filas;
 	public int columnas;
 	
-	public int palabrasHorizontales;
-	public int palabrasVerticales;
-	
 	public char[][] solucion;
 	public char[][] casillas;
 	public int[][][] indicePalabras;
 	
-	public String[] palabras;
-	public String[] descripcionH;
-	public String[] descripcionV;
+	public String[] palabrasH;
+	public String[] palabrasV;
+	private int palabrasHorizontales;
+	private int palabrasVerticales;
 
 	public Crucigrama(File archivo) throws Exception
 	{
@@ -53,12 +57,12 @@ public class Crucigrama
 		palabrasHorizontales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasHorizontales"));
 		palabrasVerticales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasVerticales"));
 		
-		descripcionH = new String[palabrasHorizontales];
-		descripcionV = new String[palabrasVerticales];
+		palabrasH = new String[palabrasHorizontales];
+		palabrasV = new String[palabrasVerticales];
 		
 		casillas = new char[filas][columnas];
 		solucion = new char[filas][columnas];
-		indicePalabras = new int[filas][columnas][2];
+		indicePalabras = new int[filas][columnas][2]; //0 para horizontales, 
 		
 		// CONFIGURAR LA SOLUCIÓN SEGÚN EL ARCHIVO
 		for(int i = 0; i < filas; i++)
@@ -79,7 +83,7 @@ public class Crucigrama
 		{
 			int numPalabra = i+1;
 			
-			descripcionH[i] = propiedades.getProperty("crucigrama.Hdescripcion" + numPalabra);
+			palabrasH[i] = propiedades.getProperty("crucigrama.Hdescripcion" + numPalabra);
 			
 			String[] coordenadas = (propiedades.getProperty("crucigrama.Hpalabra" + numPalabra)).split(";");
 			
@@ -90,11 +94,11 @@ public class Crucigrama
 			{
 				if(solucion[coordenadaY - 1][j] == '$')
 				{
-					indicePalabras[coordenadaY - 1][j][0] = -1;
+					indicePalabras[coordenadaY - 1][j][HORIZONTALES] = -1;
 				}
 				else
 				{
-					indicePalabras[coordenadaY - 1][j][0] = numPalabra;
+					indicePalabras[coordenadaY - 1][j][HORIZONTALES] = numPalabra;
 				}
 			}
 		}
@@ -106,7 +110,7 @@ public class Crucigrama
 		{
 			int numPalabra = i+1;
 			
-			descripcionV[i] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
+			palabrasV[i] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
 			
 			String[] coordenadas = (propiedades.getProperty("crucigrama.Vpalabra" + numPalabra)).split(";");
 			
@@ -117,11 +121,11 @@ public class Crucigrama
 			{
 				if(solucion[j][coordenadaX - 1] == '$')
 				{
-					indicePalabras[j][coordenadaX - 1][1] = -1;
+					indicePalabras[j][coordenadaX - 1][VERTICALES] = -1;
 				}
 				else
 				{
-					indicePalabras[j][coordenadaX - 1][1] = numPalabra;
+					indicePalabras[j][coordenadaX - 1][VERTICALES] = numPalabra;
 				}
 			}
 		}
@@ -150,13 +154,13 @@ public class Crucigrama
 			{
 			    for (int j = 0; j < abc.columnas; j++)
 			    {
-			    	if(abc.indicePalabras[i][j][0] > 0 && abc.indicePalabras[i][j][0] < 10)
+			    	if(abc.indicePalabras[i][j][HORIZONTALES] > 0 && abc.indicePalabras[i][j][HORIZONTALES] < 10)
 			    	{
-			    		System.out.print(" " + abc.indicePalabras[i][j][0] + " ");
+			    		System.out.print(" " + abc.indicePalabras[i][j][HORIZONTALES] + " ");
 			    	}
 			    	else
 			    	{
-			    		System.out.print(abc.indicePalabras[i][j][0] + " ");
+			    		System.out.print(abc.indicePalabras[i][j][HORIZONTALES] + " ");
 			    	}
 			    }
 			    
@@ -170,13 +174,13 @@ public class Crucigrama
 			{
 			    for (int j = 0; j < abc.columnas; j++)
 			    {
-			    	if(abc.indicePalabras[i][j][1] > 0 && abc.indicePalabras[i][j][1] < 10)
+			    	if(abc.indicePalabras[i][j][VERTICALES] > 0 && abc.indicePalabras[i][j][VERTICALES] < 10)
 			    	{
-			    		System.out.print(" " + abc.indicePalabras[i][j][1] + " ");
+			    		System.out.print(" " + abc.indicePalabras[i][j][VERTICALES] + " ");
 			    	}
 			    	else
 			    	{
-			    		System.out.print(abc.indicePalabras[i][j][1] + " ");
+			    		System.out.print(abc.indicePalabras[i][j][VERTICALES] + " ");
 			    	}
 			    }
 			    
