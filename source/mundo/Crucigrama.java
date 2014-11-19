@@ -21,10 +21,8 @@ public class Crucigrama
 	public char[][] casillas;
 	public int[][][] indicePalabras;
 	
-	public String[] palabrasH;
-	public String[] palabrasV;
-	private int palabrasHorizontales;
-	private int palabrasVerticales;
+	public String[][] palabrasH;
+	public String[][] palabrasV;
 
 	public Crucigrama(File archivo) throws Exception
 	{
@@ -54,11 +52,11 @@ public class Crucigrama
 		columnas = Integer.parseInt(propiedades.getProperty("crucigrama.columnas"));
 		filas = Integer.parseInt(propiedades.getProperty("crucigrama.filas"));
 		
-		palabrasHorizontales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasHorizontales"));
-		palabrasVerticales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasVerticales"));
+		int palabrasHorizontales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasHorizontales"));
+		int palabrasVerticales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasVerticales"));
 		
-		palabrasH = new String[palabrasHorizontales];
-		palabrasV = new String[palabrasVerticales];
+		palabrasH = new String[palabrasHorizontales][2];
+		palabrasV = new String[palabrasVerticales][2];
 		
 		casillas = new char[filas][columnas];
 		solucion = new char[filas][columnas];
@@ -79,11 +77,11 @@ public class Crucigrama
 	
 	private void configurarIndicesHorizontales()
 	{
-		for(int i = 0; i < palabrasHorizontales; i++)
+		for(int i = 0; i < palabrasH.length; i++)
 		{
 			int numPalabra = i+1;
 			
-			palabrasH[i] = propiedades.getProperty("crucigrama.Hdescripcion" + numPalabra);
+			palabrasH[i][DESCRIPCIONES] = propiedades.getProperty("crucigrama.Hdescripcion" + numPalabra);
 			
 			String[] coordenadas = (propiedades.getProperty("crucigrama.Hpalabra" + numPalabra)).split(";");
 			
@@ -106,11 +104,11 @@ public class Crucigrama
 	
 	private void configurarIndicesVerticales()
 	{
-		for(int i = 0; i < palabrasVerticales; i++)
+		for(int i = 0; i < palabrasV.length; i++)
 		{
 			int numPalabra = i+1;
 			
-			palabrasV[i] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
+			palabrasV[i][DESCRIPCIONES] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
 			
 			String[] coordenadas = (propiedades.getProperty("crucigrama.Vpalabra" + numPalabra)).split(";");
 			
