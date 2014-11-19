@@ -18,25 +18,15 @@ public class Crucigrama
 	public char[][] casillas;
 	public int[][][] indicePalabras;
 	
+	public String[] palabras;
 	public String[] descripcionH;
 	public String[] descripcionV;
 
-	/**
-	 * Construye un nuevo crucigrama
-	 * @param filas número de filas
-	 * @param columnas número de columnas
-	 */
 	public Crucigrama(File archivo) throws Exception
 	{
 		cargar(archivo);
 	}
 	
-	/**
-	 * Carga las propiedades desde un archivo
-	 * @param archivo
-	 * @return
-	 * @throws Exception
-	 */
 	public Properties loadProperties(File archivo) throws Exception
 	{
 		Properties prop = new Properties();
