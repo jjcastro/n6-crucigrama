@@ -28,29 +28,7 @@ public class Crucigrama
 	 */
 	public Crucigrama(File archivo) throws Exception
 	{
-		cargar(archivo);
 		
-		casillas = new char[filas][columnas];
-		solucion = new char[filas][columnas];
-		indicePalabras = new int[filas][columnas][2];
-		
-		// CONFIGURAR LA SOLUCIÓN SEGÚN EL ARCHIVO
-		for(int i = 0; i < filas; i++)
-		{
-			int numFila = i+1;
-			String fila = propiedades.getProperty("crucigrama.fila" + numFila);
-			
-			solucion[i] = (fila.trim()).toCharArray();
-		}
-		
-		// CONFIGURAR EL ÍNDICE DE PALABRAS
-		for(int i = 0; i < filas; i++)
-		{
-			for(int j = 0; j < columnas; j++)
-			{
-					
-			}
-		}
 	}
 	
 	/**
@@ -81,6 +59,31 @@ public class Crucigrama
 		
 		columnas = Integer.parseInt(propiedades.getProperty("crucigrama.columnas"));
 		filas = Integer.parseInt(propiedades.getProperty("crucigrama.filas"));
+		
+		palabrasHorizontales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasHorizontales"));
+		palabrasVerticales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasVerticales"));
+		
+		casillas = new char[filas][columnas];
+		solucion = new char[filas][columnas];
+		indicePalabras = new int[filas][columnas][2];
+		
+		// CONFIGURAR LA SOLUCIÓN SEGÚN EL ARCHIVO
+		for(int i = 0; i < filas; i++)
+		{
+			int numFila = i+1;
+			String fila = propiedades.getProperty("crucigrama.fila" + numFila);
+			
+			solucion[i] = (fila.trim()).toCharArray();
+		}
+		
+		// CONFIGURAR EL ÍNDICE DE PALABRAS HORIZONTALES
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
