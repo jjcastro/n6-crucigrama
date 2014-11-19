@@ -61,12 +61,8 @@ public class Crucigrama
 		{
 			int numFila = i+1;
 			String fila = propiedades.getProperty("crucigrama.fila" + numFila);
-			char[] valores = fila.toCharArray();
 			
-			for(int j = 0; j < columnas; j++)
-			{
-				solucion[i][j] = valores[j];
-			}
+			solucion[i] = (fila.trim()).toCharArray();
 		}
 	}
 	
