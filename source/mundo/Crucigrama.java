@@ -28,6 +28,7 @@ public class Crucigrama
 		solucion = new char[numFilas][numColumnas];
 		palabras = new int[numFilas][numColumnas][2];
 		
+		// CONFIGURAR LA SOLUCIÓN SEGÚN EL ARCHIVO
 		for(int i = 0; i < numFilas; i++)
 		{
 			int numFila = i+1;
@@ -35,8 +36,6 @@ public class Crucigrama
 			
 			solucion[i] = (fila.trim()).toCharArray();
 		}
-		
-		
 	}
 	
 	/**
