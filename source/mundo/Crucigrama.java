@@ -29,7 +29,7 @@ public class Crucigrama
 		cargar(archivo);
 	}
 	
-	public Properties loadProperties(File archivo) throws Exception
+	private Properties loadProperties(File archivo) throws Exception
 	{
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(archivo);
