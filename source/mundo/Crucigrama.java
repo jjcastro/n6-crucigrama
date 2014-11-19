@@ -120,11 +120,20 @@ public class Crucigrama
 			    System.out.print("\n");
 			}
 			
+			System.out.print("\n");
+			
 			for (int i = 0; i < abc.filas; i++)
 			{
 			    for (int j = 0; j < abc.columnas; j++)
 			    {
-			        System.out.print(abc.indicePalabras[i][j][0] + " ");
+			    	if(abc.indicePalabras[i][j][0] > 0 && abc.indicePalabras[i][j][0] < 10)
+			    	{
+			    		System.out.print(" " + abc.indicePalabras[i][j][0] + " ");
+			    	}
+			    	else
+			    	{
+			    		System.out.print(abc.indicePalabras[i][j][0] + " ");
+			    	}
 			    }
 			    
 			    System.out.print("\n");
