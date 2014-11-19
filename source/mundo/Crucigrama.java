@@ -81,9 +81,7 @@ public class Crucigrama
 		{
 			String palabra = "";
 			int numPalabra = i+1;
-			
-			
-			
+
 			String[] coordenadas = (propiedades.getProperty("crucigrama.Hpalabra" + numPalabra)).split(";");
 			
 			int coordenadaX = Integer.parseInt(coordenadas[1].trim());
