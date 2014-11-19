@@ -60,7 +60,7 @@ public class Crucigrama
 		
 		casillas = new char[filas][columnas];
 		solucion = new char[filas][columnas];
-		indicePalabras = new int[filas][columnas][2]; //0 para horizontales, 
+		indicePalabras = new int[filas][columnas][2];
 		
 		// CONFIGURAR LA SOLUCIÓN SEGÚN EL ARCHIVO
 		for(int i = 0; i < filas; i++)
@@ -71,11 +71,11 @@ public class Crucigrama
 			solucion[i] = (fila.trim()).toCharArray();
 		}
 		
-		configurarIndicesHorizontales();
-		configurarIndicesVerticales();
+		configurarPalabrasHorizontales();
+		configurarPalabrasVerticales();
 	}
 	
-	private void configurarIndicesHorizontales()
+	private void configurarPalabrasHorizontales()
 	{
 		for(int i = 0; i < palabrasH.length; i++)
 		{
@@ -102,7 +102,7 @@ public class Crucigrama
 		}
 	}
 	
-	private void configurarIndicesVerticales()
+	private void configurarPalabrasVerticales()
 	{
 		for(int i = 0; i < palabrasV.length; i++)
 		{
