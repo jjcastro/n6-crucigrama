@@ -12,6 +12,8 @@ public class Crucigrama
 	public int numColumnas;
 	
 	public char[][] solucion;
+	public char[][] casillas;
+	public int[][][] palabras;
 
 	/**
 	 * Construye un nuevo crucigrama
@@ -22,8 +24,15 @@ public class Crucigrama
 	{
 		cargar(archivo);
 		
-		numColumnas = solucion[0].length;
-		numFilas = solucion.length;
+		solucion = new char[numFilas][numColumnas];
+		
+		for(int i = 0; i < numFilas; i++)
+		{
+			int numFila = i+1;
+			String fila = propiedades.getProperty("crucigrama.fila" + numFila);
+			
+			solucion[i] = (fila.trim()).toCharArray();
+		}
 	}
 	
 	/**
@@ -52,18 +61,9 @@ public class Crucigrama
 	{
 		propiedades = loadProperties(archivo);
 		
-		int columnas = Integer.parseInt(propiedades.getProperty("crucigrama.columnas"));
-		int filas = Integer.parseInt(propiedades.getProperty("crucigrama.filas"));
+		numColumnas = Integer.parseInt(propiedades.getProperty("crucigrama.columnas"));
+		numFilas = Integer.parseInt(propiedades.getProperty("crucigrama.filas"));
 		
-		solucion = new char[filas][columnas];
-		
-		for(int i = 0; i < filas; i++)
-		{
-			int numFila = i+1;
-			String fila = propiedades.getProperty("crucigrama.fila" + numFila);
-			
-			solucion[i] = (fila.trim()).toCharArray();
-		}
 	}
 	
 	public static void main(String[] args) {
