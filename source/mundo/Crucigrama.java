@@ -79,7 +79,12 @@ public class Crucigrama
 			solucion[i] = (fila.trim()).toCharArray();
 		}
 		
-		// CONFIGURAR LAS PALABRAS HORIZONTALES
+		configurarIndicesHorizontales();
+		configurarIndicesVerticales();
+	}
+	
+	private void configurarIndicesHorizontales()
+	{
 		for(int i = 0; i < palabrasHorizontales; i++)
 		{
 			int numPalabra = i+1;
@@ -93,18 +98,20 @@ public class Crucigrama
 			
 			for(int j = coordenadaX - 1; j < columnas; j++)
 			{
-				if(solucion[coordenadaY-1][j] == '$')
+				if(solucion[coordenadaY - 1][j] == '$')
 				{
-					indicePalabras[coordenadaY-1][j][0] = -1;
+					indicePalabras[coordenadaY - 1][j][0] = -1;
 				}
 				else
 				{
-					indicePalabras[coordenadaY-1][j][0] = numPalabra;
+					indicePalabras[coordenadaY - 1][j][0] = numPalabra;
 				}
 			}
 		}
-		
-		// CONFIGURAR LAS PALABRAS VERTICALES
+	}
+	
+	private void configurarIndicesVerticales()
+	{
 		for(int i = 0; i < palabrasVerticales; i++)
 		{
 			int numPalabra = i+1;
@@ -118,13 +125,13 @@ public class Crucigrama
 			
 			for(int j = coordenadaY - 1; j < filas; j++)
 			{
-				if(solucion[j][coordenadaX-1] == '$')
+				if(solucion[j][coordenadaX - 1] == '$')
 				{
-					indicePalabras[j][coordenadaX-1][1] = -1;
+					indicePalabras[j][coordenadaX - 1][1] = -1;
 				}
 				else
 				{
-					indicePalabras[j][coordenadaX-1][1] = numPalabra;
+					indicePalabras[j][coordenadaX - 1][1] = numPalabra;
 				}
 			}
 		}
@@ -140,7 +147,7 @@ public class Crucigrama
 			{
 			    for (int j = 0; j < abc.columnas; j++)
 			    {
-			        System.out.print(abc.solucion[i][j] + " ");
+			        System.out.print(" " + abc.solucion[i][j] + " ");
 			    }
 			    
 			    System.out.print("\n");
