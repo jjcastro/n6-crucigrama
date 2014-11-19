@@ -6,7 +6,7 @@ public class Test {
 	public static void main(String[] args) {
 		try
 		{
-			Crucigrama abc = new Crucigrama(new File("./data/crucigrama2.properties"));
+			Crucigrama abc = new Crucigrama(new File("./data/crucigrama.properties"));
 			
 			// IMPRIMIR SOLUCIÓN
 			for(int i = 0; i < abc.filas; i++)
