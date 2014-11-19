@@ -23,12 +23,12 @@ public class Crucigrama
 
 	/**
 	 * Construye un nuevo crucigrama
-	 * @param filas número de filas
-	 * @param columnas número de columnas
+	 * @param filas n√∫mero de filas
+	 * @param columnas n√∫mero de columnas
 	 */
 	public Crucigrama(File archivo) throws Exception
 	{
-		
+		cargar(archivo);
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public class Crucigrama
 		}
 		catch (Exception e)
 		{
-			throw new Exception("Formato inválido");
+			throw new Exception("Formato inv√°lido");
 		}
 		fis.close();
 		return prop;
@@ -63,11 +63,14 @@ public class Crucigrama
 		palabrasHorizontales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasHorizontales"));
 		palabrasVerticales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasVerticales"));
 		
+		descripcionH = new String[palabrasHorizontales];
+		descripcionV = new String[palabrasVerticales];
+		
 		casillas = new char[filas][columnas];
 		solucion = new char[filas][columnas];
 		indicePalabras = new int[filas][columnas][2];
 		
-		// CONFIGURAR LA SOLUCIÓN SEGÚN EL ARCHIVO
+		// CONFIGURAR LA SOLUCI√ìN SEG√öN EL ARCHIVO
 		for(int i = 0; i < filas; i++)
 		{
 			int numFila = i+1;
@@ -76,12 +79,28 @@ public class Crucigrama
 			solucion[i] = (fila.trim()).toCharArray();
 		}
 		
-		// CONFIGURAR EL ÍNDICE DE PALABRAS HORIZONTALES
-		for(int i = 0; i < filas; i++)
+		// CONFIGURAR LAS PALABRAS HORIZONTALES
+		for(int i = 0; i < palabrasHorizontales; i++)
 		{
-			for(int j = 0; j < columnas; j++)
+			int numPalabra = i+1;
+			
+			descripcionH[i] = propiedades.getProperty("crucigrama.Hdescripcion" + numPalabra);
+			
+			String[] coordenadas = (propiedades.getProperty("crucigrama.Hpalabra" + numPalabra)).split(";");
+			
+			int coordenadaX = Integer.parseInt(coordenadas[1].trim());
+			int coordenadaY = Integer.parseInt(coordenadas[0].trim());
+			
+			for(int j = coordenadaX - 1; j < columnas; j++)
 			{
-				
+				if(solucion[coordenadaY-1][j] == '$')
+				{
+					indicePalabras[coordenadaY-1][j][0] = -1;
+				}
+				else
+				{
+					indicePalabras[coordenadaY-1][j][0] = numPalabra;
+				}
 			}
 		}
 	}
@@ -96,6 +115,16 @@ public class Crucigrama
 			    for (int j = 0; j < abc.columnas; j++)
 			    {
 			        System.out.print(abc.solucion[i][j] + " ");
+			    }
+			    
+			    System.out.print("\n");
+			}
+			
+			for (int i = 0; i < abc.filas; i++)
+			{
+			    for (int j = 0; j < abc.columnas; j++)
+			    {
+			        System.out.print(abc.indicePalabras[i][j][0] + " ");
 			    }
 			    
 			    System.out.print("\n");
