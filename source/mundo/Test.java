@@ -6,7 +6,9 @@ public class Test {
 	public static void main(String[] args) {
 		try
 		{
-			Crucigrama abc = new Crucigrama(new File("./data/crucigrama.properties"));
+			Crucigrama abc = new Crucigrama(new File("./data/crucigrama2.properties"));
+			
+			System.out.println(abc.solucion[0][10] == '$');
 			
 			// IMPRIMIR SOLUCIÓN
 			for(int i = 0; i < abc.filas; i++)
@@ -26,7 +28,7 @@ public class Test {
 			{
 			    for (int j = 0; j < abc.columnas; j++)
 			    {
-			    	if(abc.indicePalabras[i][j][Crucigrama.HORIZONTALES] > 0 && abc.indicePalabras[i][j][Crucigrama.HORIZONTALES] < 10)
+			    	if(abc.indicePalabras[i][j][Crucigrama.HORIZONTALES] < 10)
 			    	{
 			    		System.out.print(" " + abc.indicePalabras[i][j][Crucigrama.HORIZONTALES] + " ");
 			    	}
@@ -46,7 +48,7 @@ public class Test {
 			{
 			    for (int j = 0; j < abc.columnas; j++)
 			    {
-			    	if(abc.indicePalabras[i][j][Crucigrama.VERTICALES] > 0 && abc.indicePalabras[i][j][Crucigrama.VERTICALES] < 10)
+			    	if(abc.indicePalabras[i][j][Crucigrama.VERTICALES] < 10)
 			    	{
 			    		System.out.print(" " + abc.indicePalabras[i][j][Crucigrama.VERTICALES] + " ");
 			    	}
@@ -64,7 +66,7 @@ public class Test {
 			// IMPRIMIR PALABRAS VERTICALES
 			for(int i = 0; i < abc.palabrasV.length; i++)
 			{
-				System.out.println(abc.palabrasV[i][Crucigrama.PALABRAS]);
+				System.out.println(abc.palabrasV[i][Crucigrama.PALABRAS] + ": " + abc.palabrasV[i][Crucigrama.DESCRIPCIONES]);
 			}
 			
 		}
