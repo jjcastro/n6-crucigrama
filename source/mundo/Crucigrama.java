@@ -55,8 +55,7 @@ public class Crucigrama
 		int columnas = Integer.parseInt(propiedades.getProperty("crucigrama.columnas"));
 		int filas = Integer.parseInt(propiedades.getProperty("crucigrama.filas"));
 		
-		char[][] retorno = new char[filas][columnas];
-		solucion = retorno;
+		solucion = new char[filas][columnas];
 		
 	}
 	
