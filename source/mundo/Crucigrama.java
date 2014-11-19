@@ -73,14 +73,17 @@ public class Crucigrama
 	public static void main(String[] args) {
 		try
 		{
-		Crucigrama abc = new Crucigrama(new File("./data/crucigrama.properties"));
-		
-		for (int i = 0; i < abc.numFilas; i++) {
-		    for (int j = 0; j < abc.numColumnas; j++) {
-		        System.out.print(abc.solucion[i][j] + " ");
-		    }
-		    System.out.print("\n");
-		}
+			Crucigrama abc = new Crucigrama(new File("./data/crucigrama.properties"));
+			
+			for (int i = 0; i < abc.numFilas; i++)
+			{
+			    for (int j = 0; j < abc.numColumnas; j++)
+			    {
+			        System.out.print(abc.solucion[i][j] + " ");
+			    }
+			    
+			    System.out.print("\n");
+			}
 		}
 		catch(Exception e)
 		{
