@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.File;
 import java.util.Properties;
 
-public class Crucigrama
+public final class Crucigrama
 {
 	public static final int HORIZONTALES = 0;
 	public static final int VERTICALES = 1;
@@ -23,10 +23,30 @@ public class Crucigrama
 	
 	public String[][] palabrasH;
 	public String[][] palabrasV;
-
+	
 	public Crucigrama(File archivo) throws Exception
 	{
 		cargar(archivo);
+	}
+	
+	public int darNumeroDeFilas()
+	{
+		return filas;
+	}
+	
+	public int darNumeroDeColumnas()
+	{
+		return columnas;
+	}
+	
+	public int darNumeroDePalabrasV()
+	{
+		return palabrasV.length;
+	}
+	
+	public int darNumeroDePalabrasH()
+	{
+		return palabrasH.length;
 	}
 	
 	private Properties loadProperties(File archivo) throws Exception
