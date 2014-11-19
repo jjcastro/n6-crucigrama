@@ -106,26 +106,34 @@ public class Crucigrama
 	{
 		for(int i = 0; i < palabrasV.length; i++)
 		{
+			String palabra = "";
 			int numPalabra = i+1;
-			
-			palabrasV[i][DESCRIPCIONES] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
-			
+
 			String[] coordenadas = (propiedades.getProperty("crucigrama.Vpalabra" + numPalabra)).split(";");
 			
 			int coordenadaX = Integer.parseInt(coordenadas[1].trim());
 			int coordenadaY = Integer.parseInt(coordenadas[0].trim());
 			
-			for(int j = coordenadaY - 1; j < filas; j++)
+			boolean stop = false;
+			
+			for(int j = coordenadaY - 1; j < filas && !stop; j++)
 			{
-				if(solucion[j][coordenadaX - 1] == '$')
+				char letra = solucion[j][coordenadaX - 1];
+				
+				if(letra == '$')
 				{
 					indicePalabras[j][coordenadaX - 1][VERTICALES] = -1;
+					stop = true;
 				}
 				else
 				{
 					indicePalabras[j][coordenadaX - 1][VERTICALES] = numPalabra;
+					palabra += letra;
 				}
 			}
+			
+			palabrasV[i][PALABRAS] = palabra;
+			palabrasV[i][DESCRIPCIONES] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
 		}
 	}
 	
