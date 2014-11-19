@@ -92,7 +92,7 @@ public class Crucigrama
 			{
 				if(solucion[coordenadaY - 1][j] == '$')
 				{
-					indicePalabras[coordenadaY - 1][j][HORIZONTALES] = -1;
+					indicePalabras[coordenadaY - 1][j][HORIZONTALES] = 0;
 				}
 				else
 				{
@@ -122,7 +122,7 @@ public class Crucigrama
 				
 				if(letra == '$')
 				{
-					indicePalabras[j][coordenadaX - 1][VERTICALES] = -1;
+					indicePalabras[j][coordenadaX - 1][VERTICALES] = 0;
 					stop = true;
 				}
 				else
