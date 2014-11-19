@@ -6,6 +6,11 @@ import java.util.Properties;
 
 public class Crucigrama {
 
+	public Crucigrama(int filas, int columnas)
+	{
+		//STUB
+	}
+	
 	public Properties loadProperties(File archivo) throws Exception
 	{
 		Properties prop = new Properties();
