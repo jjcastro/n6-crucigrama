@@ -103,6 +103,31 @@ public class Crucigrama
 				}
 			}
 		}
+		
+		// CONFIGURAR LAS PALABRAS VERTICALES
+		for(int i = 0; i < palabrasVerticales; i++)
+		{
+			int numPalabra = i+1;
+			
+			descripcionV[i] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
+			
+			String[] coordenadas = (propiedades.getProperty("crucigrama.Vpalabra" + numPalabra)).split(";");
+			
+			int coordenadaX = Integer.parseInt(coordenadas[1].trim());
+			int coordenadaY = Integer.parseInt(coordenadas[0].trim());
+			
+			for(int j = coordenadaY - 1; j < filas; j++)
+			{
+				if(solucion[j][coordenadaX-1] == '$')
+				{
+					indicePalabras[j][coordenadaX-1][1] = -1;
+				}
+				else
+				{
+					indicePalabras[j][coordenadaX-1][1] = numPalabra;
+				}
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -110,7 +135,8 @@ public class Crucigrama
 		{
 			Crucigrama abc = new Crucigrama(new File("./data/crucigrama.properties"));
 			
-			for (int i = 0; i < abc.filas; i++)
+			// IMPRIMIR SOLUCIÓN
+			for(int i = 0; i < abc.filas; i++)
 			{
 			    for (int j = 0; j < abc.columnas; j++)
 			    {
@@ -122,7 +148,8 @@ public class Crucigrama
 			
 			System.out.print("\n");
 			
-			for (int i = 0; i < abc.filas; i++)
+			// IMPRIMIR ÍNDICES HORIZONTALES
+			for(int i = 0; i < abc.filas; i++)
 			{
 			    for (int j = 0; j < abc.columnas; j++)
 			    {
@@ -133,6 +160,26 @@ public class Crucigrama
 			    	else
 			    	{
 			    		System.out.print(abc.indicePalabras[i][j][0] + " ");
+			    	}
+			    }
+			    
+			    System.out.print("\n");
+			}
+			
+			System.out.print("\n");
+			
+			// IMPRIMIR ÍNDICES VERTICALES
+			for(int i = 0; i < abc.filas; i++)
+			{
+			    for (int j = 0; j < abc.columnas; j++)
+			    {
+			    	if(abc.indicePalabras[i][j][1] > 0 && abc.indicePalabras[i][j][1] < 10)
+			    	{
+			    		System.out.print(" " + abc.indicePalabras[i][j][1] + " ");
+			    	}
+			    	else
+			    	{
+			    		System.out.print(abc.indicePalabras[i][j][1] + " ");
 			    	}
 			    }
 			    
