@@ -4,13 +4,29 @@ import java.io.FileInputStream;
 import java.io.File;
 import java.util.Properties;
 
-public class Crucigrama {
+public class Crucigrama
+{
+	private Properties propiedades;
+	
+	private int numFilas;
+	private int numColumnas;
 
+	/**
+	 * Construye un nuevo crucigrama
+	 * @param filas nœmero de filas
+	 * @param columnas nœmero de columnas
+	 */
 	public Crucigrama(int filas, int columnas)
 	{
 		//STUB
 	}
 	
+	/**
+	 * Carga las propiedades desde un archivo
+	 * @param archivo
+	 * @return
+	 * @throws Exception
+	 */
 	public Properties loadProperties(File archivo) throws Exception
 	{
 		Properties prop = new Properties();
