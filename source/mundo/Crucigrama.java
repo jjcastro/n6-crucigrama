@@ -42,8 +42,15 @@ public class Crucigrama
 			
 			solucion[i] = (fila.trim()).toCharArray();
 		}
-
 		
+		// CONFIGURAR EL ÍNDICE DE PALABRAS
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+					
+			}
+		}
 	}
 	
 	/**
