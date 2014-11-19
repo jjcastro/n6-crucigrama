@@ -58,6 +58,15 @@ public class Test {
 			    
 			    System.out.print("\n");
 			}
+			
+			System.out.print("\n");
+			
+			// IMPRIMIR PALABRAS VERTICALES
+			for(int i = 0; i < abc.palabrasV.length; i++)
+			{
+				System.out.println(abc.palabrasV[i][Crucigrama.PALABRAS]);
+			}
+			
 		}
 		catch(Exception e)
 		{
