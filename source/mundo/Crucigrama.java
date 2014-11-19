@@ -18,11 +18,12 @@ public class Crucigrama
 	 * @param filas nœmero de filas
 	 * @param columnas nœmero de columnas
 	 */
-	public Crucigrama()
+	public Crucigrama(File archivo) throws Exception
 	{
+		cargar(archivo);
+		
 		numColumnas = solucion[0].length;
 		numFilas = solucion.length;
-		
 	}
 	
 	/**
@@ -57,11 +58,6 @@ public class Crucigrama
 		
 		solucion = new char[filas][columnas];
 		
-	}
-	
-	public static void main(String[] args) {
-		Crucigrama dummy = new Crucigrama();
-		System.out.println("" + dummy.numColumnas + " " + dummy.numFilas);
 	}
 	
 }
