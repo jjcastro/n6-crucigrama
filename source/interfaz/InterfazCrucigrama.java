@@ -45,12 +45,11 @@ public class InterfazCrucigrama extends JFrame
 		{
 			crucigrama = new Crucigrama(archivo);
 			
-			pnlPrincipal.configurarCrucigrama(crucigrama.darCasillas());
-			
 			String[] palabrasH = crucigrama.darDescripcionesPalabrasH();
 			String[] palabrasV = crucigrama.darDescripcionesPalabrasV();
 			
-			pnlPrincipal.configurarDescripciones(palabrasH, palabrasV);
+			pnlPrincipal.cargarNuevoCrucigrama(crucigrama.darSolucion(),
+					crucigrama.darIndices(), palabrasH, palabrasV);
 			
 			setVisible(true);
 		}

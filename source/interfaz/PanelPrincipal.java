@@ -15,6 +15,9 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 	
 	private JTextField[][] campos;
 	
+	private char[][] solucionPalabras;
+	private int[][][] indicePalabras;
+	
 	private JPanel pnlCrucigrama;
 	private JPanel pnlDescripciones;
 	
@@ -27,14 +30,14 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		setLayout(new GridLayout(1,2));
 	}
 
-	public void configurarCrucigrama(char[][] casillas)
+	public void configurarCrucigrama(char[][] solucion)
 	{
 		if(pnlCrucigrama != null) remove(pnlCrucigrama);
 		
 		pnlCrucigrama = new JPanel();
 		
-		int filas = casillas.length;
-		int columnas = casillas[0].length;
+		int filas = solucion.length;
+		int columnas = solucion[0].length;
 		
 		pnlCrucigrama.setLayout(new GridLayout(filas + 1, columnas + 1, 1, 1));
 		pnlCrucigrama.add(new JLabel());
@@ -56,7 +59,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 			{
 				campos[i-1][j] = new JTextField();
 				
-				if(casillas[i-1][j] == '$')
+				if(solucion[i-1][j] == '$')
 				{
 					campos[i-1][j].setEnabled(false);
 					campos[i-1][j].setBackground(Color.BLACK);
@@ -108,6 +111,15 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		txtDescripcionesV.setText(descripcionesV);
 		
 		this.add(pnlDescripciones);
+	}
+	
+	public void cargarNuevoCrucigrama(char[][] solucion, int[][][] indices, String[] palabrasH, String[] palabrasV)
+	{
+		solucionPalabras = solucion;
+		indicePalabras = indices;
+		
+		configurarCrucigrama(solucion);
+		configurarDescripciones(palabrasH, palabrasV);
 	}
 
 	public void actionPerformed(Document e)

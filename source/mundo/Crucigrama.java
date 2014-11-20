@@ -110,6 +110,16 @@ public final class Crucigrama
 		return casillas;
 	}
 	
+	public char[][] darSolucion()
+	{
+		return solucion;
+	}
+	
+	public int[][][] darIndices()
+	{
+		return indicePalabras;
+	}
+	
 	public String[] darDescripcionesPalabrasH()
 	{
 		return palabrasH[DESCRIPCIONES];
