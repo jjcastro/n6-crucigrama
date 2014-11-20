@@ -25,7 +25,7 @@ public class InterfazCrucigrama extends JFrame
 		pnlAcciones = new PanelAcciones(this);
 		add(pnlAcciones, BorderLayout.SOUTH);
 		
-		pnlPrincipal = new PanelPrincipal(this);
+		pnlPrincipal = new PanelPrincipal(10, 10, this); // STUB
 		add(pnlPrincipal, BorderLayout.CENTER);
 		
 		
