@@ -94,7 +94,7 @@ public class PanelPrincipal extends JPanel
 		String descripcionesV = "<html>";
 		for(int i = 0; i < palabrasV.length; i++)
 		{
-			descripcionesV += palabrasH[i] + "<br>";
+			descripcionesV += palabrasV[i] + "<br>";
 		}
 		
 		descripcionesV += "</html>";
