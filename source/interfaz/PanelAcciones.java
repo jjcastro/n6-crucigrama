@@ -76,7 +76,7 @@ public class PanelAcciones extends JPanel implements ActionListener
 		{
 			JFileChooser fc = new JFileChooser("./data");
 			fc.setMultiSelectionEnabled(false);
-			int result = fc.showSaveDialog(interfaz);
+			int result = fc.showOpenDialog(this);
 			
 			if (result == JFileChooser.APPROVE_OPTION)
 			{
