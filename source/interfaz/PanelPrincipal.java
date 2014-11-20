@@ -129,24 +129,23 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 	
 	public void colorearPalabraH(int palabra, boolean esCorrecta)
 	{
-			boolean finalizado = false;
-			
-			for(int i = 0; i < filas && !finalizado; i++)
+		boolean finalizado = false;
+		
+		for(int i = 0; i < filas && !finalizado; i++)
+		{
+			for(int j = 0; j < columnas && !finalizado; j++)
 			{
-				for(int j = 0; j < columnas && !finalizado; j++)
+				if(indicePalabras[i][j][Crucigrama.HORIZONTALES] == palabra)
 				{
-					if(indicePalabras[i][j][Crucigrama.HORIZONTALES] == palabra)
-					{
-						if(esCorrecta) campos[i][j].setBackground(Color.GREEN);
-						else campos[i][j].setBackground(Color.WHITE);
-					}
-					else if(indicePalabras[i][j][Crucigrama.HORIZONTALES] == palabra + 1)
-					{
-						finalizado = true;
-					}
+					if(esCorrecta) campos[i][j].setBackground(Color.GREEN);
+					else campos[i][j].setBackground(Color.WHITE);
+				}
+				else if(indicePalabras[i][j][Crucigrama.HORIZONTALES] == palabra + 1)
+				{
+					finalizado = true;
 				}
 			}
-		
+		}
 	}
 
 	public void actionPerformed(Document e)
