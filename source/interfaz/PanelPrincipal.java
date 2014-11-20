@@ -37,6 +37,8 @@ public class PanelPrincipal extends JPanel
 		pnlDescripciones.add(txtDescripcionesH);
 		pnlDescripciones.add(txtDescripcionesV);
 		
+		configurarCrucigrama(casillas);
+		
 		add(pnlCrucigrama);
 		add(pnlDescripciones);
 	}
@@ -48,12 +50,12 @@ public class PanelPrincipal extends JPanel
 		
 		campos = new JTextField[filas][columnas];
 		
-		pnlCrucigrama.setLayout(new GridLayout(filas + 1, columnas + 1, 2, 2));
+		pnlCrucigrama.setLayout(new GridLayout(1, columnas + 1, 2, 2));
 		pnlCrucigrama.add(new JLabel());
 		
 		for(int i = 1; i < columnas + 1; i++)
 		{
-			pnlCrucigrama.add(new JLabel(""+i));
+			pnlCrucigrama.add(new JLabel(""+i, SwingConstants.CENTER));
 		}
 	}
 }
