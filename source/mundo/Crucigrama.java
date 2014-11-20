@@ -217,8 +217,10 @@ public final class Crucigrama
 				}
 			}
 			
+			String posicion = "" + coordenadaY + ":" + coordenadaX;
+			
 			palabrasV[PALABRAS][i] = palabra;
-			palabrasV[DESCRIPCIONES][i] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
+			palabrasV[DESCRIPCIONES][i] = posicion + " - " + propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
 		}
 	}
 }
