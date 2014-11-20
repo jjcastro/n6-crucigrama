@@ -70,7 +70,6 @@ public class InterfazCrucigrama extends JFrame
 	{
 		for(int i = 1; i < crucigrama.darNumeroDePalabrasH() + 1; i++)
 		{
-			//System.out.println(crucigrama.validarHorizontal(i));
 			pnlPrincipal.colorearPalabraH(i, crucigrama.validarHorizontal(i));
 		}
 	}
@@ -79,7 +78,6 @@ public class InterfazCrucigrama extends JFrame
 	{
 		for(int i = 1; i < crucigrama.darNumeroDePalabrasV() + 1; i++)
 		{
-			//System.out.println(crucigrama.validarHorizontal(i));
 			pnlPrincipal.colorearPalabraV(i, crucigrama.validarVertical(i));
 		}
 	}
