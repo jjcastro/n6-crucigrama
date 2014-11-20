@@ -18,7 +18,7 @@ public class PanelPrincipal extends JPanel
 	private JLabel txtDescripcionesH;
 	private JLabel txtDescripcionesV;
 	
-	public PanelPrincipal(char[][] casillas, InterfazCrucigrama pInterfaz)
+	public PanelPrincipal(char[][] casillas, String[] palabrasH, String[] palabrasV, InterfazCrucigrama pInterfaz)
 	{
 		interfaz = pInterfaz;
 		
@@ -78,5 +78,10 @@ public class PanelPrincipal extends JPanel
 				pnlCrucigrama.add(campos[i-1][j]);
 			}
 		}
+	}
+	
+	private void configurarDescripciones(String[] palabrasH, String[] palabrasV)
+	{
+		
 	}
 }

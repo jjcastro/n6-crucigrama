@@ -28,7 +28,10 @@ public class InterfazCrucigrama extends JFrame
 		pnlAcciones = new PanelAcciones(this);
 		add(pnlAcciones, BorderLayout.SOUTH);
 		
-		pnlPrincipal = new PanelPrincipal(crucigrama.darCasillas(), this);
+		String[] palabrasH = crucigrama.darDescripcionesPalabrasH();
+		String[] palabrasV = crucigrama.darDescripcionesPalabrasV();
+		
+		pnlPrincipal = new PanelPrincipal(crucigrama.darCasillas(), palabrasH, palabrasV, this);
 		add(pnlPrincipal, BorderLayout.CENTER);
 		
 		setVisible(true);
