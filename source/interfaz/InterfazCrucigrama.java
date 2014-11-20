@@ -68,17 +68,31 @@ public class InterfazCrucigrama extends JFrame
 	
 	public void validarPalabrasHorizontales()
 	{
-		for(int i = 1; i < crucigrama.darNumeroDePalabrasH() + 1; i++)
+		try
 		{
-			pnlPrincipal.colorearPalabraH(i, crucigrama.validarHorizontal(i));
+			for(int i = 1; i < crucigrama.darNumeroDePalabrasH() + 1; i++)
+			{
+				pnlPrincipal.colorearPalabraH(i, crucigrama.validarHorizontal(i));
+			}
+		}
+		catch(NullPointerException e)
+		{
+			JOptionPane.showMessageDialog(this, "Debe cargar el juego antes de validar", "Error al validar", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
 	public void validarPalabrasVerticales()
 	{
-		for(int i = 1; i < crucigrama.darNumeroDePalabrasV() + 1; i++)
+		try
 		{
-			pnlPrincipal.colorearPalabraV(i, crucigrama.validarVertical(i));
+			for(int i = 1; i < crucigrama.darNumeroDePalabrasV() + 1; i++)
+			{
+				pnlPrincipal.colorearPalabraV(i, crucigrama.validarVertical(i));
+			}
+		}
+		catch(NullPointerException e)
+		{
+			JOptionPane.showMessageDialog(this, "Debe cargar el juego antes de validar", "Error al validar", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
