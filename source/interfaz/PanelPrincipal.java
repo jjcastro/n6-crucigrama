@@ -22,7 +22,6 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 	
 	private char[][] solucionPalabras;
 	private int[][][] indicePalabras;
-	private boolean[][] letrasCorrectas;
 	
 	private JPanel pnlCrucigrama;
 	private JPanel pnlDescripciones;
@@ -44,8 +43,6 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		
 		filas = solucion.length;
 		columnas = solucion[0].length;
-		
-		letrasCorrectas = new boolean[filas][columnas];
 		
 		pnlCrucigrama.setLayout(new GridLayout(filas + 1, columnas + 1, 1, 1));
 		pnlCrucigrama.add(new JLabel());
@@ -132,17 +129,6 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 	
 	public void colorearPalabraH(int palabra, boolean esCorrecta)
 	{
-		for(int i = 0; i < filas; i++)
-		{
-			for(int j = 0; j < columnas; j++)
-			{
-				letrasCorrectas[i][j] = false;
-				if(solucionPalabras[i][j] != '$' && !letrasCorrectas[i][j]) campos[i][j].setBackground(Color.WHITE);
-			}
-		}
-		
-		if(esCorrecta)
-		{
 			boolean finalizado = false;
 			
 			for(int i = 0; i < filas && !finalizado; i++)
@@ -151,8 +137,8 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 				{
 					if(indicePalabras[i][j][Crucigrama.HORIZONTALES] == palabra)
 					{
-						campos[i][j].setBackground(Color.GREEN);
-						letrasCorrectas[i][j] = true;
+						if(esCorrecta) campos[i][j].setBackground(Color.GREEN);
+						else campos[i][j].setBackground(Color.WHITE);
 					}
 					else if(indicePalabras[i][j][Crucigrama.HORIZONTALES] == palabra + 1)
 					{
@@ -160,7 +146,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 					}
 				}
 			}
-		}
+		
 	}
 
 	public void actionPerformed(Document e)
