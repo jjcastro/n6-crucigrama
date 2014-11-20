@@ -48,7 +48,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		add(pnlDescripciones);
 	}
 
-	private void configurarCrucigrama(char[][] casillas)
+	public void configurarCrucigrama(char[][] casillas)
 	{
 		int filas = casillas.length;
 		int columnas = casillas[0].length;
@@ -87,7 +87,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		}
 	}
 	
-	private void configurarDescripciones(String[] palabrasH, String[] palabrasV)
+	public void configurarDescripciones(String[] palabrasH, String[] palabrasV)
 	{
 		String descripcionesH = "<html>";
 		for(int i = 0; i < palabrasH.length; i++)
