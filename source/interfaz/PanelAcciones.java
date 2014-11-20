@@ -84,5 +84,9 @@ public class PanelAcciones extends JPanel implements ActionListener
 				interfaz.cargar(archivo);
 			}
 		}
+		else if(comando.equals(VALIDARH))
+		{
+			interfaz.validarPalabrasHorizontales();
+		}
 	}
 }

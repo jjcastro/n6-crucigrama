@@ -97,12 +97,12 @@ public final class Crucigrama
 	
 	public int darNumeroDePalabrasV()
 	{
-		return palabrasV.length;
+		return palabrasV[0].length;
 	}
 	
 	public int darNumeroDePalabrasH()
 	{
-		return palabrasH.length;
+		return palabrasH[0].length;
 	}
 	
 	public char[][] darCasillas()

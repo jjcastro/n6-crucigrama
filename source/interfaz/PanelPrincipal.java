@@ -9,14 +9,20 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.Document;
 
+import mundo.Crucigrama;
+
 public class PanelPrincipal extends JPanel implements DocumentListener
 {
 	private InterfazCrucigrama interfaz;
+	
+	private int filas;
+	private int columnas;
 	
 	private JTextField[][] campos;
 	
 	private char[][] solucionPalabras;
 	private int[][][] indicePalabras;
+	private boolean[][] letrasCorrectas;
 	
 	private JPanel pnlCrucigrama;
 	private JPanel pnlDescripciones;
@@ -36,8 +42,10 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		
 		pnlCrucigrama = new JPanel();
 		
-		int filas = solucion.length;
-		int columnas = solucion[0].length;
+		filas = solucion.length;
+		columnas = solucion[0].length;
+		
+		letrasCorrectas = new boolean[filas][columnas];
 		
 		pnlCrucigrama.setLayout(new GridLayout(filas + 1, columnas + 1, 1, 1));
 		pnlCrucigrama.add(new JLabel());
@@ -122,9 +130,37 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		configurarDescripciones(palabrasH, palabrasV);
 	}
 	
-	public void colorearPalabraH(int palabra)
+	public void colorearPalabraH(int palabra, boolean esCorrecta)
 	{
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				letrasCorrectas[i][j] = false;
+				if(solucionPalabras[i][j] != '$' && !letrasCorrectas[i][j]) campos[i][j].setBackground(Color.WHITE);
+			}
+		}
 		
+		if(esCorrecta)
+		{
+			boolean finalizado = false;
+			
+			for(int i = 0; i < filas && !finalizado; i++)
+			{
+				for(int j = 0; j < columnas && !finalizado; j++)
+				{
+					if(indicePalabras[i][j][Crucigrama.HORIZONTALES] == palabra)
+					{
+						campos[i][j].setBackground(Color.GREEN);
+						letrasCorrectas[i][j] = true;
+					}
+					else if(indicePalabras[i][j][Crucigrama.HORIZONTALES] == palabra + 1)
+					{
+						finalizado = true;
+					}
+				}
+			}
+		}
 	}
 
 	public void actionPerformed(Document e)
