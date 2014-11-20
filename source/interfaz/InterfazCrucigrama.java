@@ -16,8 +16,6 @@ public class InterfazCrucigrama extends JFrame
 	
 	public InterfazCrucigrama() throws Exception
 	{
-		crucigrama = new Crucigrama(new File("./data/crucigrama.properties")); // TEMPORAL
-		
 		setSize(780, 730);
 		setLayout(new BorderLayout());
 		
@@ -28,10 +26,7 @@ public class InterfazCrucigrama extends JFrame
 		pnlAcciones = new PanelAcciones(this);
 		add(pnlAcciones, BorderLayout.SOUTH);
 		
-		String[] palabrasH = crucigrama.darDescripcionesPalabrasH();
-		String[] palabrasV = crucigrama.darDescripcionesPalabrasV();
-		
-		pnlPrincipal = new PanelPrincipal(crucigrama.darCasillas(), palabrasH, palabrasV, this);
+		pnlPrincipal = new PanelPrincipal(this);
 		add(pnlPrincipal, BorderLayout.CENTER);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -48,17 +43,21 @@ public class InterfazCrucigrama extends JFrame
 	{
 		try
 		{
-			crucigrama.cargar(archivo);
+			crucigrama = new Crucigrama(archivo);
+			
+			pnlPrincipal.configurarCrucigrama(crucigrama.darCasillas());
 			
 			String[] palabrasH = crucigrama.darDescripcionesPalabrasH();
 			String[] palabrasV = crucigrama.darDescripcionesPalabrasV();
 			
-			pnlPrincipal.configurarCrucigrama(crucigrama.darCasillas());
 			pnlPrincipal.configurarDescripciones(palabrasH, palabrasV);
+			
+			setVisible(true);
 		}
 		catch (Exception e)
 		{
 			JOptionPane.showMessageDialog(this, "No se ha podido cargar el archivo", "Error", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
 		}
 		
 	}

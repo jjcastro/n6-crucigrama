@@ -21,27 +21,10 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 	private JLabel txtDescripcionesH;
 	private JLabel txtDescripcionesV;
 	
-	public PanelPrincipal(char[][] casillas, String[] palabrasH, String[] palabrasV, InterfazCrucigrama pInterfaz)
+	public PanelPrincipal(InterfazCrucigrama pInterfaz)
 	{
 		interfaz = pInterfaz;
-		
 		setLayout(new GridLayout(1,2));
-		
-		pnlDescripciones = new JPanel();
-		pnlDescripciones.setLayout(new GridLayout(2,1));
-		
-		txtDescripcionesH = new JLabel();
-		txtDescripcionesH.setBorder(new TitledBorder("Horizontales"));
-		
-		txtDescripcionesV = new JLabel();
-		txtDescripcionesV.setBorder(new TitledBorder("Verticales"));
-		
-		pnlDescripciones.add(txtDescripcionesH);
-		pnlDescripciones.add(txtDescripcionesV);
-		
-		configurarCrucigrama(casillas);
-		
-		configurarDescripciones(palabrasH, palabrasV);
 	}
 
 	public void configurarCrucigrama(char[][] casillas)
@@ -85,11 +68,26 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 				campos[i-1][j].getDocument().addDocumentListener(this);
 			}
 		}
-		add(pnlCrucigrama);
+		
+		this.add(pnlCrucigrama);
 	}
 	
 	public void configurarDescripciones(String[] palabrasH, String[] palabrasV)
 	{
+		if(pnlDescripciones != null) remove(pnlDescripciones);
+		
+		pnlDescripciones = new JPanel();
+		pnlDescripciones.setLayout(new GridLayout(2,1));
+		
+		txtDescripcionesH = new JLabel();
+		txtDescripcionesH.setBorder(new TitledBorder("Horizontales"));
+		
+		txtDescripcionesV = new JLabel();
+		txtDescripcionesV.setBorder(new TitledBorder("Verticales"));
+		
+		pnlDescripciones.add(txtDescripcionesH);
+		pnlDescripciones.add(txtDescripcionesV);
+		
 		String descripcionesH = "<html>";
 		for(int i = 0; i < palabrasH.length; i++)
 		{
@@ -106,11 +104,10 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		
 		descripcionesV += "</html>";
 		
-		
 		txtDescripcionesH.setText(descripcionesH);
 		txtDescripcionesV.setText(descripcionesV);
 		
-		add(pnlDescripciones);
+		this.add(pnlDescripciones);
 	}
 
 	public void actionPerformed(Document e)
