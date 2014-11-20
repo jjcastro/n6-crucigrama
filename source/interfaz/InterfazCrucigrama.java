@@ -34,6 +34,7 @@ public class InterfazCrucigrama extends JFrame
 		pnlPrincipal = new PanelPrincipal(crucigrama.darCasillas(), palabrasH, palabrasV, this);
 		add(pnlPrincipal, BorderLayout.CENTER);
 		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 	
