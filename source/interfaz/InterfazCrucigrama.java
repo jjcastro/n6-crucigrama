@@ -1,5 +1,11 @@
 package interfaz;
 
-public class InterfazCrucigrama {
+import javax.swing.*;
 
+public class InterfazCrucigrama extends JFrame
+{
+	private PanelAcciones pnlAcciones;
+	private PanelPrincipal pnlPrincipal;
+	
+	
 }
