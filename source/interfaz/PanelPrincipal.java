@@ -145,6 +145,27 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 			}
 		}
 	}
+	
+	public void colorearPalabraV(int palabra, boolean esCorrecta)
+	{
+		boolean finalizado = false;
+		
+		for(int i = 0; i < columnas && !finalizado; i++)
+		{
+			for(int j = 0; j < filas && !finalizado; j++)
+			{
+				if(indicePalabras[j][i][Crucigrama.VERTICALES] == palabra)
+				{
+					if(esCorrecta) campos[j][i].setBackground(Color.GREEN);
+					else campos[j][i].setBackground(Color.WHITE);
+				}
+				else if(indicePalabras[j][i][Crucigrama.VERTICALES] == palabra + 1)
+				{
+					finalizado = true;
+				}
+			}
+		}
+	}
 
 	public void actionPerformed(Document e)
 	{
