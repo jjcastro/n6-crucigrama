@@ -112,8 +112,6 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 
 	public void actionPerformed(Document e)
 	{
-		String posicion = (String) e.getProperty("x");
-		
 		int posicionX = Integer.parseInt((String) e.getProperty("x"));
 		int posicionY = Integer.parseInt((String) e.getProperty("y"));
 		
