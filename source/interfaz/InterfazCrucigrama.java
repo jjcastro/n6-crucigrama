@@ -68,17 +68,11 @@ public class InterfazCrucigrama extends JFrame
 	
 	public void validarPalabrasHorizontales()
 	{
-		System.out.println(crucigrama.validarHorizontal(1));
-		System.out.println(crucigrama.validarHorizontal(2));
-		System.out.println(crucigrama.validarHorizontal(3));
-		pnlPrincipal.colorearPalabraH(1, crucigrama.validarHorizontal(1));
-		pnlPrincipal.colorearPalabraH(2, crucigrama.validarHorizontal(2));
-		pnlPrincipal.colorearPalabraH(3, crucigrama.validarHorizontal(3));
-		/*for(int i = 1; i < crucigrama.darNumeroDePalabrasH() + 1; i++)
+		for(int i = 1; i < crucigrama.darNumeroDePalabrasH() + 1; i++)
 		{
 			System.out.println(crucigrama.validarHorizontal(i));
 			pnlPrincipal.colorearPalabraH(i, crucigrama.validarHorizontal(i));
-		}*/
+		}
 	}
 	
 	public static void main(String[] args) throws Exception
