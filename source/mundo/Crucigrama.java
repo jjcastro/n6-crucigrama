@@ -45,7 +45,7 @@ public final class Crucigrama
 			}
 		}
 		
-		return palabrasH[palabra][PALABRAS].equals(palabraEnCasillas);
+		return palabrasH[palabra-1][PALABRAS].equals(palabraEnCasillas);
 	}
 	
 	public void jugar(int fila, int columna, String entrada)
