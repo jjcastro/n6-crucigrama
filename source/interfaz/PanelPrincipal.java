@@ -9,7 +9,7 @@ public class PanelPrincipal extends JPanel
 {
 	private InterfazCrucigrama interfaz;
 	
-	private JTextField[][] casillas;
+	private JTextField[][] campos;
 	
 	private JPanel pnlCrucigrama;
 	private JPanel pnlDescripciones;
@@ -39,5 +39,21 @@ public class PanelPrincipal extends JPanel
 		
 		add(pnlCrucigrama);
 		add(pnlDescripciones);
+	}
+
+	private void configurarCrucigrama(char[][] casillas)
+	{
+		int filas = casillas.length;
+		int columnas = casillas[0].length;
+		
+		campos = new JTextField[filas][columnas];
+		
+		pnlCrucigrama.setLayout(new GridLayout(filas + 1, columnas + 1, 2, 2));
+		pnlCrucigrama.add(new JLabel());
+		
+		for(int i = 1; i < columnas + 1; i++)
+		{
+			pnlCrucigrama.add(new JLabel(""+i));
+		}
 	}
 }
