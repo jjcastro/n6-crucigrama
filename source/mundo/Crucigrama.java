@@ -256,4 +256,27 @@ public final class Crucigrama
 			palabrasV[DESCRIPCIONES][i] = posicion + " - " + propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
 		}
 	}
+	
+	public boolean[][] compararLetraPorLetra()
+	{
+		boolean[][] letraPorLetra = new boolean[filas][columnas];
+		
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				letraPorLetra[i][j] = false;
+			}
+		}
+		
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				if(solucion[i][j] == casillas[i][j]) letraPorLetra[i][j] = true;
+			}
+		}
+		
+		return letraPorLetra;
+	}
 }
