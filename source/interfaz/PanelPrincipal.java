@@ -42,14 +42,16 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		pnlDescripciones.add(txtDescripcionesV);
 		
 		configurarCrucigrama(casillas);
-		configurarDescripciones(palabrasH, palabrasV);
-		
 		add(pnlCrucigrama);
-		add(pnlDescripciones);
+		
+		configurarDescripciones(palabrasH, palabrasV);
 	}
 
 	public void configurarCrucigrama(char[][] casillas)
 	{
+		remove(pnlCrucigrama);
+		pnlCrucigrama = new JPanel();
+		
 		int filas = casillas.length;
 		int columnas = casillas[0].length;
 		
@@ -85,6 +87,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 				campos[i-1][j].getDocument().addDocumentListener(this);
 			}
 		}
+		add(pnlCrucigrama);
 	}
 	
 	public void configurarDescripciones(String[] palabrasH, String[] palabrasV)
@@ -108,6 +111,8 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		
 		txtDescripcionesH.setText(descripcionesH);
 		txtDescripcionesV.setText(descripcionesV);
+		
+		add(pnlDescripciones);
 	}
 
 	public void actionPerformed(Document e)

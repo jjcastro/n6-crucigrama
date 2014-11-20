@@ -44,6 +44,25 @@ public class InterfazCrucigrama extends JFrame
 		//System.out.println(crucigrama.validarHorizontal(1)); 
 	}
 	
+	public void cargar(File archivo)
+	{
+		try
+		{
+			crucigrama.cargar(archivo);
+			
+			String[] palabrasH = crucigrama.darDescripcionesPalabrasH();
+			String[] palabrasV = crucigrama.darDescripcionesPalabrasV();
+			
+			pnlPrincipal.configurarCrucigrama(crucigrama.darCasillas());
+			pnlPrincipal.configurarDescripciones(palabrasH, palabrasV);
+		}
+		catch (Exception e)
+		{
+			JOptionPane.showMessageDialog(this, "No se ha podido cargar el archivo", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		
+	}
+	
 	public static void main(String[] args) throws Exception
 	{
 		new InterfazCrucigrama();
