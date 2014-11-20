@@ -2,6 +2,7 @@ package interfaz;
 
 import java.awt.GridLayout;
 import java.awt.event.*;
+import java.io.File;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -70,5 +71,18 @@ public class PanelAcciones extends JPanel implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		String comando = e.getActionCommand();
+		
+		if(comando.equals(CARGAR))
+		{
+			JFileChooser fc = new JFileChooser("./data");
+			fc.setMultiSelectionEnabled(false);
+			int result = fc.showSaveDialog(interfaz);
+			
+			if (result == JFileChooser.APPROVE_OPTION)
+			{
+				File archivo = fc.getSelectedFile();
+				interfaz.cargar(archivo);
+			}
+		}
 	}
 }
