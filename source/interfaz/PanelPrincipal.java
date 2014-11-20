@@ -27,8 +27,6 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		
 		setLayout(new GridLayout(1,2));
 		
-		pnlCrucigrama = new JPanel();
-		
 		pnlDescripciones = new JPanel();
 		pnlDescripciones.setLayout(new GridLayout(2,1));
 		
@@ -42,14 +40,14 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		pnlDescripciones.add(txtDescripcionesV);
 		
 		configurarCrucigrama(casillas);
-		add(pnlCrucigrama);
 		
 		configurarDescripciones(palabrasH, palabrasV);
 	}
 
 	public void configurarCrucigrama(char[][] casillas)
 	{
-		remove(pnlCrucigrama);
+		if(pnlCrucigrama != null) remove(pnlCrucigrama);
+		
 		pnlCrucigrama = new JPanel();
 		
 		int filas = casillas.length;
