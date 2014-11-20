@@ -87,6 +87,16 @@ public final class Crucigrama
 		return casillas;
 	}
 	
+	public String[] darDescripcionesPalabrasH()
+	{
+		return palabrasH[DESCRIPCIONES];
+	}
+	
+	public String[] darDescripcionesPalabrasV()
+	{
+		return palabrasV[DESCRIPCIONES];
+	}
+	
 	public void cargar(File archivo) throws Exception
 	{
 		propiedades = loadProperties(archivo);
