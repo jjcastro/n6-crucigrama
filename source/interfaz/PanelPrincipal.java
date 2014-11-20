@@ -14,7 +14,7 @@ public class PanelPrincipal extends JPanel
 	private JLabel txtDescripcionesH;
 	private JLabel txtDescripcionesV;
 	
-	public PanelPrincipal(int filas, int columnas, InterfazCrucigrama pInterfaz)
+	public PanelPrincipal(char[][] casillas, InterfazCrucigrama pInterfaz)
 	{
 		interfaz = pInterfaz;
 		
