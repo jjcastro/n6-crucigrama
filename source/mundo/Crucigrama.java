@@ -30,6 +30,24 @@ public final class Crucigrama
 		cargar(archivo);
 	}
 	
+	public boolean validarHorizontal(int palabra)
+	{
+		String palabraEnCasillas = "";
+		
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				if(indicePalabras[i][j][HORIZONTALES] == palabra)
+				{
+					palabraEnCasillas += casillas[i][j];
+				}
+			}
+		}
+		
+		return palabrasH[palabra][PALABRAS].equals(palabraEnCasillas);
+	}
+	
 	public void jugar(int fila, int columna, String entrada)
 	{
 		char[] letra = entrada.toUpperCase().toCharArray();
