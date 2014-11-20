@@ -29,6 +29,15 @@ public final class Crucigrama
 		cargar(archivo);
 	}
 	
+	public void jugar(int fila, int columna, String entrada)
+	{
+		char[] letra = entrada.toUpperCase().toCharArray();
+		if(letra.length == 1) 
+			casillas[fila][columna] = letra[0];
+		else 
+			casillas[fila][columna] = '!';
+	}
+	
 	public int darNumeroDeFilas()
 	{
 		return filas;
@@ -47,22 +56,6 @@ public final class Crucigrama
 	public int darNumeroDePalabrasH()
 	{
 		return palabrasH.length;
-	}
-	
-	private Properties loadProperties(File archivo) throws Exception
-	{
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream(archivo);
-		try
-		{
-			prop.load(fis);
-		}
-		catch (Exception e)
-		{
-			throw new Exception("Formato inválido");
-		}
-		fis.close();
-		return prop;
 	}
 	
 	public void cargar(File archivo) throws Exception
@@ -93,6 +86,22 @@ public final class Crucigrama
 		
 		configurarPalabrasHorizontales();
 		configurarPalabrasVerticales();
+	}
+	
+	private Properties loadProperties(File archivo) throws Exception
+	{
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream(archivo);
+		try
+		{
+			prop.load(fis);
+		}
+		catch (Exception e)
+		{
+			throw new Exception("Formato inválido");
+		}
+		fis.close();
+		return prop;
 	}
 	
 	private void configurarPalabrasHorizontales()
