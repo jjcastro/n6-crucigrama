@@ -21,6 +21,12 @@ public class InterfazCrucigrama extends JFrame
 		JLabel banner = new JLabel(imagen);
 		add(banner, BorderLayout.NORTH);
 		
+		pnlAcciones = new PanelAcciones(this);
+		add(pnlAcciones, BorderLayout.SOUTH);
+		
+		pnlPrincipal = new PanelPrincipal(this);
+		add(pnlPrincipal, BorderLayout.CENTER);
+		
 		pack();
 		setVisible(true);
 	}
