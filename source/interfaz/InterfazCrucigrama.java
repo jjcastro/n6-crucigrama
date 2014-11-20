@@ -61,6 +61,16 @@ public class InterfazCrucigrama extends JFrame
 		
 	}
 	
+	public boolean validarVertical(int palabra)
+	{
+		return crucigrama.validarVertical(palabra);
+	}
+	
+	public boolean validarHorizontal(int palabra)
+	{
+		return crucigrama.validarHorizontal(palabra);
+	}
+	
 	public static void main(String[] args) throws Exception
 	{
 		new InterfazCrucigrama();

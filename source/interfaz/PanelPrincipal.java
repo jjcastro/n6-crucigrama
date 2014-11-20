@@ -121,6 +121,11 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		configurarCrucigrama(solucion);
 		configurarDescripciones(palabrasH, palabrasV);
 	}
+	
+	public void colorearPalabraH(int palabra)
+	{
+		
+	}
 
 	public void actionPerformed(Document e)
 	{
