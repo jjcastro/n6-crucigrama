@@ -75,6 +75,15 @@ public class InterfazCrucigrama extends JFrame
 		}
 	}
 	
+	public void validarPalabrasVerticales()
+	{
+		for(int i = 1; i < crucigrama.darNumeroDePalabrasV() + 1; i++)
+		{
+			//System.out.println(crucigrama.validarHorizontal(i));
+			pnlPrincipal.colorearPalabraV(i, crucigrama.validarVertical(i));
+		}
+	}
+	
 	public static void main(String[] args) throws Exception
 	{
 		new InterfazCrucigrama();
