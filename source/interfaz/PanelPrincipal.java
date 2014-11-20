@@ -49,7 +49,7 @@ public class PanelPrincipal extends JPanel
 		int filas = casillas.length;
 		int columnas = casillas[0].length;
 		
-		pnlCrucigrama.setLayout(new GridLayout(filas + 1, columnas + 1, 2, 2));
+		pnlCrucigrama.setLayout(new GridLayout(filas + 1, columnas + 1, 1, 1));
 		pnlCrucigrama.add(new JLabel());
 		
 		// INICIALIZAR LA MATRIZ Y TODOS LOS CAMPOS
