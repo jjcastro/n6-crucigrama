@@ -161,7 +161,7 @@ public final class Crucigrama
 			String posicion = "" + coordenadaY + ":" + coordenadaX;
 			
 			palabrasH[i][PALABRAS] = palabra;
-			palabrasH[i][DESCRIPCIONES] = posicion + propiedades.getProperty("crucigrama.Hdescripcion" + numPalabra);
+			palabrasH[i][DESCRIPCIONES] = posicion + " - " + propiedades.getProperty("crucigrama.Hdescripcion" + numPalabra);
 		}
 	}
 	
