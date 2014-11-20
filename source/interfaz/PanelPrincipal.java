@@ -7,8 +7,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.Document;
 
-public class PanelPrincipal extends JPanel implements ActionListener
+public class PanelPrincipal extends JPanel implements DocumentListener
 {
 	private InterfazCrucigrama interfaz;
 	
@@ -79,8 +82,9 @@ public class PanelPrincipal extends JPanel implements ActionListener
 				}
 				
 				pnlCrucigrama.add(campos[i-1][j]);
-				campos[i-1][j].setActionCommand("" + (i-1) + "_" + j);
-				campos[i-1][j].addActionListener(this);
+				campos[i-1][j].getDocument().putProperty("y", "" + (i-1));
+				campos[i-1][j].getDocument().putProperty("x", "" + j);
+				campos[i-1][j].getDocument().addDocumentListener(this);
 			}
 		}
 	}
@@ -108,16 +112,33 @@ public class PanelPrincipal extends JPanel implements ActionListener
 		txtDescripcionesV.setText(descripcionesV);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e)
+	public void actionPerformed(Document e)
 	{
-		String posicion[] = (e.getActionCommand()).split("_");
+		String posicion = (String) e.getProperty("x");
 		
-		int posicionX = Integer.parseInt(posicion[1]);
-		int posicionY = Integer.parseInt(posicion[0]);
+		int posicionX = Integer.parseInt((String) e.getProperty("x"));
+		int posicionY = Integer.parseInt((String) e.getProperty("y"));
 		
 		interfaz.jugar(posicionX, posicionY, campos[posicionY][posicionX].getText());
 		
-		//System.out.println("Letra " + campos[posicionY][posicionX].getText() + " jugada en " + posicionX + ", " + posicionY);
+		System.out.println("Letra " + campos[posicionY][posicionX].getText() + " jugada en " + posicionX + ", " + posicionY);
+	}
+
+	@Override
+	public void changedUpdate(DocumentEvent e) {
+		actionPerformed(e.getDocument());
+		
+	}
+
+	@Override
+	public void insertUpdate(DocumentEvent e) {
+		actionPerformed(e.getDocument());
+		
+	}
+
+	@Override
+	public void removeUpdate(DocumentEvent e) {
+		actionPerformed(e.getDocument());
+		
 	}
 }
