@@ -1,6 +1,7 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+import java.io.File;
 
 import javax.swing.*;
 
@@ -13,8 +14,10 @@ public class InterfazCrucigrama extends JFrame
 	
 	private Crucigrama crucigrama;
 	
-	public InterfazCrucigrama()
+	public InterfazCrucigrama() throws Exception
 	{
+		crucigrama = new Crucigrama(new File("./data/crucigrama.properties")); // TEMPORAL
+		
 		setSize(780, 730);
 		setLayout(new BorderLayout());
 		
@@ -31,7 +34,7 @@ public class InterfazCrucigrama extends JFrame
 		setVisible(true);
 	}
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		new InterfazCrucigrama();
 	}
