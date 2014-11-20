@@ -38,6 +38,11 @@ public class InterfazCrucigrama extends JFrame
 		setVisible(true);
 	}
 	
+	public void jugar(int posicionX, int posicionY, String entrada)
+	{
+		crucigrama.jugar(posicionY, posicionX, entrada);
+	}
+	
 	public static void main(String[] args) throws Exception
 	{
 		new InterfazCrucigrama();
