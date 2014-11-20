@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.*;
@@ -48,14 +49,34 @@ public class PanelPrincipal extends JPanel
 		int filas = casillas.length;
 		int columnas = casillas[0].length;
 		
-		campos = new JTextField[filas][columnas];
-		
-		pnlCrucigrama.setLayout(new GridLayout(1, columnas + 1, 2, 2));
+		pnlCrucigrama.setLayout(new GridLayout(filas + 1, columnas + 1, 2, 2));
 		pnlCrucigrama.add(new JLabel());
 		
+		// INICIALIZAR LA MATRIZ Y TODOS LOS CAMPOS
+		campos = new JTextField[filas][columnas];
+		
+		// LLENAR LA PRIMERA FILA
 		for(int i = 1; i < columnas + 1; i++)
 		{
 			pnlCrucigrama.add(new JLabel(""+i, SwingConstants.CENTER));
+		}
+		
+		for(int i = 1; i < filas + 1; i++)
+		{
+			pnlCrucigrama.add(new JLabel(""+i, SwingConstants.CENTER));
+
+			for(int j = 0; j < columnas; j++)
+			{
+				campos[i-1][j] = new JTextField();
+				
+				if(casillas[i-1][j] == '$')
+				{
+					campos[i-1][j].setEnabled(false);
+					campos[i-1][j].setBackground(Color.BLACK);
+				}
+				
+				pnlCrucigrama.add(campos[i-1][j]);
+			}
 		}
 	}
 }
