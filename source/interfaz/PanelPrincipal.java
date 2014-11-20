@@ -1,5 +1,7 @@
 package interfaz;
 
+import java.awt.GridLayout;
+
 import javax.swing.*;
 
 public class PanelPrincipal extends JPanel
@@ -8,8 +10,16 @@ public class PanelPrincipal extends JPanel
 	
 	private JTextField[][] casillas;
 	
-	public PanelPrincipal(InterfazCrucigrama pInterfaz)
+	public PanelPrincipal(int filas, int columnas, InterfazCrucigrama pInterfaz)
 	{
 		interfaz = pInterfaz;
+		
+		setLayout(new GridLayout(1,2));
+		
+		JPanel pnlCrucigrama = new JPanel();
+		
+		JPanel pnlDescripciones = new JPanel();
+		
+		
 	}
 }
