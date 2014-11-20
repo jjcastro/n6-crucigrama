@@ -6,6 +6,8 @@ import java.util.Properties;
 
 public final class Crucigrama
 {
+	//PRUEBA
+	
 	public static final int HORIZONTALES = 0;
 	public static final int VERTICALES = 1;
 	
