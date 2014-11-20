@@ -103,9 +103,16 @@ public final class Crucigrama
 		for(int i = 0; i < filas; i++)
 		{
 			int numFila = i+1;
-			String fila = propiedades.getProperty("crucigrama.fila" + numFila);
+			String fila = propiedades.getProperty("crucigrama.fila" + numFila).trim();
+			char[] letras = fila.toCharArray();
 			
-			solucion[i] = (fila.trim()).toCharArray();
+			for(int j = 0; j < columnas; j++)
+			{
+				char letra = letras[j];
+				
+				solucion[i][j] = letra;
+				if(letra == '$') casillas[i][j] = letra;
+			}
 		}
 		
 		configurarPalabrasHorizontales();
