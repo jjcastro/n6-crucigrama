@@ -20,7 +20,6 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 	
 	private JTextField[][] campos;
 	
-	private char[][] solucionPalabras;
 	private int[][][] indicePalabras;
 	
 	private JPanel pnlCrucigrama;
@@ -120,7 +119,6 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 	
 	public void cargarNuevoCrucigrama(char[][] solucion, int[][][] indices, String[] palabrasH, String[] palabrasV)
 	{
-		solucionPalabras = solucion;
 		indicePalabras = indices;
 		
 		configurarCrucigrama(solucion);
