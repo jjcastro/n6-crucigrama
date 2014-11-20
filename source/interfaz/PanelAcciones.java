@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import java.awt.event.*;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 
 public class PanelAcciones extends JPanel implements ActionListener
 {
@@ -30,6 +31,7 @@ public class PanelAcciones extends JPanel implements ActionListener
 		interfaz = pInterfaz;
 		
 		setLayout(new GridLayout(2, 4));
+		setBorder(new TitledBorder("Acciones"));
 		
 		btnValidarHorizontales = new JButton("Validar horizontales");
 		btnValidarVerticales = new JButton("Validar verticales");
