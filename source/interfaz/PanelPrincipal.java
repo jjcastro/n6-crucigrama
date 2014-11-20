@@ -39,6 +39,7 @@ public class PanelPrincipal extends JPanel
 		pnlDescripciones.add(txtDescripcionesV);
 		
 		configurarCrucigrama(casillas);
+		configurarDescripciones(palabrasH, palabrasV);
 		
 		add(pnlCrucigrama);
 		add(pnlDescripciones);
@@ -82,6 +83,24 @@ public class PanelPrincipal extends JPanel
 	
 	private void configurarDescripciones(String[] palabrasH, String[] palabrasV)
 	{
+		String descripcionesH = "<html>";
+		for(int i = 0; i < palabrasH.length; i++)
+		{
+			descripcionesH += palabrasH[i] + "\n";
+		}
 		
+		descripcionesH += "</html>";
+		
+		String descripcionesV = "<html>";
+		for(int i = 0; i < palabrasV.length; i++)
+		{
+			descripcionesV += palabrasH[i] + "\n";
+		}
+		
+		descripcionesV += "</html>";
+		
+		
+		txtDescripcionesH.setText(descripcionesH);
+		txtDescripcionesV.setText(descripcionesV);
 	}
 }
