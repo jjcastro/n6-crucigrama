@@ -79,6 +79,8 @@ public class PanelPrincipal extends JPanel implements ActionListener
 				}
 				
 				pnlCrucigrama.add(campos[i-1][j]);
+				campos[i-1][j].setActionCommand("" + i + "_" + j);
+				campos[i-1][j].addActionListener(this);
 			}
 		}
 	}
