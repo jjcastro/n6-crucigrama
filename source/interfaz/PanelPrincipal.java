@@ -11,6 +11,9 @@ public class PanelPrincipal extends JPanel
 	
 	private JTextField[][] casillas;
 	
+	private JPanel pnlCrucigrama;
+	private JPanel pnlDescripciones;
+	
 	private JLabel txtDescripcionesH;
 	private JLabel txtDescripcionesV;
 	
@@ -20,9 +23,9 @@ public class PanelPrincipal extends JPanel
 		
 		setLayout(new GridLayout(1,2));
 		
-		JPanel pnlCrucigrama = new JPanel();
+		pnlCrucigrama = new JPanel();
 		
-		JPanel pnlDescripciones = new JPanel();
+		pnlDescripciones = new JPanel();
 		pnlDescripciones.setLayout(new GridLayout(2,1));
 		
 		txtDescripcionesH = new JLabel();
