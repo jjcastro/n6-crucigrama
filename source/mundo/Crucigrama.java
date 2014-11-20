@@ -50,7 +50,7 @@ public final class Crucigrama
 			}
 		}
 		
-		return palabrasH[palabra-1][PALABRAS].equals(palabraEnCasillas);
+		return palabrasH[PALABRAS][palabra-1].equals(palabraEnCasillas);
 	}
 	
 	public void jugar(int fila, int columna, String entrada)
@@ -107,8 +107,8 @@ public final class Crucigrama
 		int palabrasHorizontales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasHorizontales"));
 		int palabrasVerticales = Integer.parseInt(propiedades.getProperty("crucigrama.palabrasVerticales"));
 		
-		palabrasH = new String[palabrasHorizontales][2];
-		palabrasV = new String[palabrasVerticales][2];
+		palabrasH = new String[2][palabrasHorizontales];
+		palabrasV = new String[2][palabrasVerticales];
 		
 		casillas = new char[filas][columnas];
 		solucion = new char[filas][columnas];
@@ -152,7 +152,7 @@ public final class Crucigrama
 	
 	private void configurarPalabrasHorizontales()
 	{
-		for(int i = 0; i < palabrasH.length; i++)
+		for(int i = 0; i < palabrasH[0].length; i++)
 		{
 			String palabra = "";
 			int numPalabra = i+1;
@@ -182,14 +182,14 @@ public final class Crucigrama
 			
 			String posicion = "" + coordenadaY + ":" + coordenadaX;
 			
-			palabrasH[i][PALABRAS] = palabra;
-			palabrasH[i][DESCRIPCIONES] = posicion + " - " + propiedades.getProperty("crucigrama.Hdescripcion" + numPalabra);
+			palabrasH[PALABRAS][i] = palabra;
+			palabrasH[DESCRIPCIONES][i] = posicion + " - " + propiedades.getProperty("crucigrama.Hdescripcion" + numPalabra);
 		}
 	}
 	
 	private void configurarPalabrasVerticales()
 	{
-		for(int i = 0; i < palabrasV.length; i++)
+		for(int i = 0; i < palabrasV[0].length; i++)
 		{
 			String palabra = "";
 			int numPalabra = i+1;
@@ -217,8 +217,8 @@ public final class Crucigrama
 				}
 			}
 			
-			palabrasV[i][PALABRAS] = palabra;
-			palabrasV[i][DESCRIPCIONES] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
+			palabrasV[PALABRAS][i] = palabra;
+			palabrasV[DESCRIPCIONES][i] = propiedades.getProperty("crucigrama.Vdescripcion" + numPalabra);
 		}
 	}
 }
