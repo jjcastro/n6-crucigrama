@@ -82,6 +82,11 @@ public final class Crucigrama
 		return palabrasH.length;
 	}
 	
+	public char[][] darCasillas()
+	{
+		return casillas;
+	}
+	
 	public void cargar(File archivo) throws Exception
 	{
 		propiedades = loadProperties(archivo);
