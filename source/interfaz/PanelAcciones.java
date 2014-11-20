@@ -7,6 +7,14 @@ import javax.swing.*;
 
 public class PanelAcciones extends JPanel implements ActionListener
 {
+	private static final String VALIDARH = "VALIDARH";
+	private static final String VALIDARV = "VALIDARV";
+	private static final String SOLUCIONAR = "SOLUCIONAR";
+	private static final String LIMPIAR = "LIMPIAR";
+	private static final String CARGAR = "CARGAR";
+	private static final String OPCION1 = "OPCION1";
+	private static final String OPCION2 = "OPCION2";
+
 	private InterfazCrucigrama interfaz;
 	
 	private JButton btnValidarHorizontales;
@@ -38,6 +46,22 @@ public class PanelAcciones extends JPanel implements ActionListener
 		add(btnCargar);
 		add(btnOpcion1);
 		add(btnOpcion2);
+		
+		btnValidarHorizontales.setActionCommand(VALIDARH);
+		btnValidarVerticales.setActionCommand(VALIDARV);
+		btnSolucionar.setActionCommand(SOLUCIONAR);
+		btnLimpiar.setActionCommand(LIMPIAR);
+		btnCargar.setActionCommand(CARGAR);
+		btnOpcion1.setActionCommand(OPCION1);
+		btnOpcion2.setActionCommand(OPCION2);
+		
+		btnValidarHorizontales.addActionListener(this);
+		btnValidarVerticales.addActionListener(this);
+		btnSolucionar.addActionListener(this);
+		btnLimpiar.addActionListener(this);
+		btnCargar.addActionListener(this);
+		btnOpcion1.addActionListener(this);
+		btnOpcion2.addActionListener(this);
 	}
 
 	@Override
