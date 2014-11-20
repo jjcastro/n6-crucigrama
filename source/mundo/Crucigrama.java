@@ -53,6 +53,29 @@ public final class Crucigrama
 		return palabrasH[PALABRAS][palabra-1].equals(palabraEnCasillas);
 	}
 	
+	public boolean validarVertical(int palabra)
+	{
+		String palabraEnCasillas = "";
+		boolean finalizado = false;
+		
+		for(int i = 0; i < columnas && !finalizado; i++)
+		{
+			for(int j = 0; j < filas && !finalizado; j++)
+			{
+				if(indicePalabras[i][j][VERTICALES] == palabra)
+				{
+					palabraEnCasillas += casillas[i][j];
+				}
+				else if(indicePalabras[i][j][VERTICALES] == palabra + 1)
+				{
+					finalizado = true;
+				}
+			}
+		}
+		
+		return palabrasV[PALABRAS][palabra-1].equals(palabraEnCasillas);
+	}
+	
 	public void jugar(int fila, int columna, String entrada)
 	{
 		char[] letra = entrada.toUpperCase().toCharArray();
