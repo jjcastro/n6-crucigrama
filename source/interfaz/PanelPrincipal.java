@@ -79,7 +79,7 @@ public class PanelPrincipal extends JPanel implements ActionListener
 				}
 				
 				pnlCrucigrama.add(campos[i-1][j]);
-				campos[i-1][j].setActionCommand("" + i + "_" + j);
+				campos[i-1][j].setActionCommand("" + (i-1) + "_" + j);
 				campos[i-1][j].addActionListener(this);
 			}
 		}
@@ -111,7 +111,13 @@ public class PanelPrincipal extends JPanel implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		// TODO Auto-generated method stub
+		String posicion[] = (e.getActionCommand()).split("_");
 		
+		int posicionX = Integer.parseInt(posicion[1]);
+		int posicionY = Integer.parseInt(posicion[0]);
+		
+		interfaz.jugar(posicionX, posicionY, campos[posicionY][posicionX].getText());
+		
+		//System.out.println("Letra " + campos[posicionY][posicionX].getText() + " jugada en " + posicionX + ", " + posicionY);
 	}
 }
