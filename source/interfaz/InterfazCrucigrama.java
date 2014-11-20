@@ -17,11 +17,16 @@ public class InterfazCrucigrama extends JFrame
 	{
 		setLayout(new BorderLayout());
 		
-		JLabel banner = new JLabel("./data/imagenes/banner.jpg");
+		ImageIcon imagen = new ImageIcon("./data/imagenes/banner.jpg");
+		JLabel banner = new JLabel(imagen);
 		add(banner, BorderLayout.NORTH);
 		
 		pack();
 		setVisible(true);
-		
+	}
+	
+	public static void main(String[] args)
+	{
+		new InterfazCrucigrama();
 	}
 }
