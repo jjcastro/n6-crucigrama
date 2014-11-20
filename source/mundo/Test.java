@@ -66,7 +66,7 @@ public class Test {
 			// IMPRIMIR PALABRAS VERTICALES
 			for(int i = 0; i < abc.palabrasV.length; i++)
 			{
-				System.out.println(abc.palabrasV[i][Crucigrama.PALABRAS] + ": " + abc.palabrasV[i][Crucigrama.DESCRIPCIONES]);
+				System.out.println("" + (i+1) + ". " + abc.palabrasV[i][Crucigrama.PALABRAS] + ": " + abc.palabrasV[i][Crucigrama.DESCRIPCIONES]);
 			}
 			
 			System.out.print("\nPALABRAS HORIZONTALES:\n");
@@ -74,9 +74,38 @@ public class Test {
 			// IMPRIMIR PALABRAS VERTICALES
 			for(int i = 0; i < abc.palabrasH.length; i++)
 			{
-				System.out.println(abc.palabrasH[i][Crucigrama.PALABRAS] + ": " + abc.palabrasH[i][Crucigrama.DESCRIPCIONES]);
+				System.out.println("" + (i+1) + ". " + abc.palabrasH[i][Crucigrama.PALABRAS] + ": " + abc.palabrasH[i][Crucigrama.DESCRIPCIONES]);
 			}
 			
+			abc.jugar(0, 0, "D");
+			abc.jugar(1, 0, "E");
+			abc.jugar(2, 0, "S");
+			abc.jugar(3, 0, "C");
+			abc.jugar(4, 0, "O");
+			abc.jugar(5, 0, "N");
+			abc.jugar(6, 0, "F");
+			abc.jugar(7, 0, "I");
+			abc.jugar(8, 0, "A");
+			abc.jugar(9, 0, "R");
+			
+			System.out.print("\n");
+			
+			System.out.print(abc.validarHorizontal(14));
+			
+			System.out.print("\n\n");
+			
+			// IMPRIMIR CASILLAS
+			for(int i = 0; i < abc.filas; i++)
+			{
+			    for (int j = 0; j < abc.columnas; j++)
+			    {
+			    	char letra = abc.casillas[i][j];
+			    	if(letra == '\u0000') letra = 'X';
+			    	System.out.print(" " + letra + " ");
+			    }
+			    
+			    System.out.print("\n");
+			}
 		}
 		catch(Exception e)
 		{
