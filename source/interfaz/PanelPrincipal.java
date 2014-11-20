@@ -11,8 +11,8 @@ public class PanelPrincipal extends JPanel
 	
 	private JTextField[][] casillas;
 	
-	private JTextArea txtDescripcionesH;
-	private JTextArea txtDescripcionesV;
+	private JLabel txtDescripcionesH;
+	private JLabel txtDescripcionesV;
 	
 	public PanelPrincipal(int filas, int columnas, InterfazCrucigrama pInterfaz)
 	{
@@ -25,11 +25,11 @@ public class PanelPrincipal extends JPanel
 		JPanel pnlDescripciones = new JPanel();
 		pnlDescripciones.setLayout(new GridLayout(2,1));
 		
-		txtDescripcionesH = new JTextArea();
+		txtDescripcionesH = new JLabel();
 		txtDescripcionesH.setBorder(new TitledBorder("Horizontales"));
 		
-		txtDescripcionesV = new JTextArea();
-		txtDescripcionesH.setBorder(new TitledBorder("Verticales"));
+		txtDescripcionesV = new JLabel();
+		txtDescripcionesV.setBorder(new TitledBorder("Verticales"));
 		
 		pnlDescripciones.add(txtDescripcionesH);
 		pnlDescripciones.add(txtDescripcionesV);
