@@ -2,11 +2,13 @@ package interfaz;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
-public class PanelPrincipal extends JPanel
+public class PanelPrincipal extends JPanel implements ActionListener
 {
 	private InterfazCrucigrama interfaz;
 	
@@ -102,5 +104,12 @@ public class PanelPrincipal extends JPanel
 		
 		txtDescripcionesH.setText(descripcionesH);
 		txtDescripcionesV.setText(descripcionesV);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }
