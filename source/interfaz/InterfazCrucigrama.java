@@ -36,7 +36,6 @@ public class InterfazCrucigrama extends JFrame
 	public void jugar(int posicionX, int posicionY, String entrada)
 	{
 		crucigrama.jugar(posicionY, posicionX, entrada);
-		//System.out.println(crucigrama.validarHorizontal(1)); 
 	}
 	
 	public void cargar(File archivo)
