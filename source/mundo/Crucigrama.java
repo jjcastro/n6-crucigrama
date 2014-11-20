@@ -33,14 +33,19 @@ public final class Crucigrama
 	public boolean validarHorizontal(int palabra)
 	{
 		String palabraEnCasillas = "";
+		boolean finalizado = false;
 		
-		for(int i = 0; i < filas; i++)
+		for(int i = 0; i < filas && !finalizado; i++)
 		{
-			for(int j = 0; j < columnas; j++)
+			for(int j = 0; j < columnas && !finalizado; j++)
 			{
 				if(indicePalabras[i][j][HORIZONTALES] == palabra)
 				{
 					palabraEnCasillas += casillas[i][j];
+				}
+				else if(indicePalabras[i][j][HORIZONTALES] == palabra + 1)
+				{
+					finalizado = true;
 				}
 			}
 		}
