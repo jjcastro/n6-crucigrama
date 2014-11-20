@@ -6,6 +6,8 @@ public class Test {
 	public static void main(String[] args) {
 		try
 		{
+			
+			//dfsdf
 			Crucigrama abc = new Crucigrama(new File("./data/crucigrama.properties"));
 			
 			// IMPRIMIR SOLUCIÓN
