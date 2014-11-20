@@ -62,11 +62,11 @@ public final class Crucigrama
 		{
 			for(int j = 0; j < filas && !finalizado; j++)
 			{
-				if(indicePalabras[i][j][VERTICALES] == palabra)
+				if(indicePalabras[j][i][VERTICALES] == palabra)
 				{
-					palabraEnCasillas += casillas[i][j];
+					palabraEnCasillas += casillas[j][i];
 				}
-				else if(indicePalabras[i][j][VERTICALES] == palabra + 1)
+				else if(indicePalabras[j][i][VERTICALES] == palabra + 1)
 				{
 					finalizado = true;
 				}
