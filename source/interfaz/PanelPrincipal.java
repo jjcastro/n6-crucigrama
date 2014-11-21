@@ -13,6 +13,11 @@ import mundo.Crucigrama;
 
 public class PanelPrincipal extends JPanel implements DocumentListener
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private InterfazCrucigrama interfaz;
 	
 	private int filas;

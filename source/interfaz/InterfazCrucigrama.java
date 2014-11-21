@@ -9,6 +9,11 @@ import mundo.Crucigrama;
 
 public class InterfazCrucigrama extends JFrame
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private PanelAcciones pnlAcciones;
 	private PanelPrincipal pnlPrincipal;
 	
