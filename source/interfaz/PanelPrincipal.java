@@ -248,7 +248,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		
 		interfaz.jugar(posicionX, posicionY, campos[posicionY][posicionX].getText());
 		
-		System.out.println("Letra " + campos[posicionY][posicionX].getText() + " jugada en " + posicionX + ", " + posicionY);
+		//System.out.println("Letra " + campos[posicionY][posicionX].getText() + " jugada en " + posicionX + ", " + posicionY);
 	}
 
 	@Override
