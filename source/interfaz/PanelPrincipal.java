@@ -197,7 +197,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 
 	public void solucionar(boolean[][] letras)
 	{
-		for(int i = 0; i < filas; i++)
+		/*for(int i = 0; i < filas; i++)
 		{
 			for(int j = 0; j < columnas; j++)
 			{
@@ -207,6 +207,6 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 			}
 			
 			System.out.println();
-		}
+		}*/
 	}
 }
