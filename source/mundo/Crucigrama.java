@@ -271,11 +271,14 @@ public final class Crucigrama
 		
 		for(int i = 0; i < filas; i++)
 		{
-			for(int j = 0; j < columnas && casillas[i][j] != '$'; j++)
+			for(int j = 0; j < columnas; j++)
 			{
-				if(solucion[i][j] == casillas[i][j])
+				if(casillas[i][j] != '$')
 				{
-					letraPorLetra[i][j] = true;
+					if(solucion[i][j] == casillas[i][j])
+					{
+						letraPorLetra[i][j] = true;
+					}
 				}
 			}
 		}
