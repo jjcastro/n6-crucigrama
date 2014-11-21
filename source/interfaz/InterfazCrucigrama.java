@@ -102,6 +102,13 @@ public class InterfazCrucigrama extends JFrame
 
 	public void solucionar()
 	{
-		pnlPrincipal.solucionar(crucigrama.compararLetraPorLetra(), crucigrama.darSolucion());
+		try
+		{
+			pnlPrincipal.solucionar(crucigrama.compararLetraPorLetra(), crucigrama.darSolucion());
+		}
+		catch(NullPointerException e)
+		{
+			JOptionPane.showMessageDialog(this, "Debe cargar el juego antes de validar", "Error al validar", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
