@@ -194,4 +194,15 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		actionPerformed(e.getDocument());
 		
 	}
+
+	public void solucionar(boolean[][] letras)
+	{
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				System.out.println(letras[i][j]);
+			}
+		}
+	}
 }
