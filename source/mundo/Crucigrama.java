@@ -139,7 +139,7 @@ public final class Crucigrama
 	 */
 	public void jugar(int fila, int columna, String entrada)
 	{
-		char[] letra = entrada.toUpperCase().toCharArray();
+		char[] letra = entrada.toCharArray();
 		if(letra.length == 1) 
 			casillas[fila][columna] = letra[0];
 		else 
