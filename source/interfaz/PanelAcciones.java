@@ -100,5 +100,13 @@ public class PanelAcciones extends JPanel implements ActionListener
 		{
 			interfaz.limpiar();
 		}
+		else if(comando.equals(OPCION1))
+		{
+			interfaz.opcion1();
+		}
+		else if(comando.equals(OPCION2))
+		{
+			interfaz.opcion2();
+		}
 	}
 }
