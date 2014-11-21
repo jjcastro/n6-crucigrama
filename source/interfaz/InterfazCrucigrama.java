@@ -102,6 +102,6 @@ public class InterfazCrucigrama extends JFrame
 
 	public void solucionar()
 	{
-		pnlPrincipal.solucionar(crucigrama.compararLetraPorLetra());
+		pnlPrincipal.solucionar(crucigrama.compararLetraPorLetra(), crucigrama.darSolucion());
 	}
 }

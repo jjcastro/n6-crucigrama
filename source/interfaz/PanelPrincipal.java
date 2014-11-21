@@ -195,7 +195,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		
 	}
 
-	public void solucionar(boolean[][] letras)
+	public void solucionar(boolean[][] letras, char[][] solucion)
 	{
 		for(int i = 0; i < filas; i++)
 		{
@@ -204,6 +204,14 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 				if(letras[i][j])
 				{
 					campos[i][j].setBackground(Color.GREEN);
+				}
+				else
+				{
+					if(!campos[i][j].getText().equals(""))
+					{
+						campos[i][j].setBackground(Color.RED);
+					}
+					campos[i][j].setText("" + solucion[i][j]);
 				}
 			}
 		}
