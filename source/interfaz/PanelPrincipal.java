@@ -11,6 +11,11 @@ import javax.swing.text.Document;
 
 import mundo.Crucigrama;
 
+/**
+ * Panel central con el crucigrama y las descripciones de las palabras
+ * @author jj.castro10
+ *
+ */
 public class PanelPrincipal extends JPanel implements DocumentListener
 {
 	/**
@@ -18,28 +23,64 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Variable para guardar la ventana principal
+	 */
 	private InterfazCrucigrama interfaz;
 	
+	/**
+	 * Número de filas del crucigrama
+	 */
 	private int filas;
+	/**
+	 * Número de columnas del crucigrama
+	 */
 	private int columnas;
 	
+	/**
+	 * Matriz de campos de texto del crucigrama
+	 */
 	private JTextField[][] campos;
 	
+	/**
+	 * Matriz con los números de las palabras
+	 */
 	private int[][][] indicePalabras;
 	
+	/**
+	 * Panel con el diagrama del crucigrama
+	 */
 	private JPanel pnlCrucigrama;
+	
+	/**
+	 * Panel con las descripciones de las palabras
+	 */
 	private JPanel pnlDescripciones;
 	
+	/**
+	 * Texto de las descripciones de palabras horizontales
+	 */
 	private JLabel txtDescripcionesH;
+	/**
+	 * Texto de las descripciones de palabras verticales
+	 */
 	private JLabel txtDescripcionesV;
 	
+	/**
+	 * Crea una nuevo panel central
+	 * @param pInterfaz ventana principal
+	 */
 	public PanelPrincipal(InterfazCrucigrama pInterfaz)
 	{
 		interfaz = pInterfaz;
 		setLayout(new GridLayout(1,2));
 	}
 
-	public void configurarCrucigrama(char[][] solucion)
+	/**
+	 * Configura y agrega el crucigrama al panel
+	 * @param solucion matriz con las soluciones del crucigrama
+	 */
+	private void configurarCrucigrama(char[][] solucion)
 	{
 		if(pnlCrucigrama != null) remove(pnlCrucigrama);
 		
@@ -84,7 +125,12 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		this.add(pnlCrucigrama);
 	}
 	
-	public void configurarDescripciones(String[] palabrasH, String[] palabrasV)
+	/**
+	 * Configura y agrega las descripciones al panel
+	 * @param palabrasH matriz con las palabras horizontales y sus descripciones
+	 * @param palabrasV matriz con las palabras verticales y sus descripciones
+	 */
+	private void configurarDescripciones(String[] palabrasH, String[] palabrasV)
 	{
 		if(pnlDescripciones != null) remove(pnlDescripciones);
 		
@@ -122,6 +168,13 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		this.add(pnlDescripciones);
 	}
 	
+	/**
+	 * Carga un nuevo crucigrama con descripciones y lo agrega al panel
+	 * @param solucion matriz con las soluciones del crucigrama
+	 * @param indices Matriz con los números de las palabras y sus posiciones
+	 * @param palabrasH matriz con las palabras horizontales y sus descripciones
+	 * @param palabrasV matriz con las palabras verticales y sus descripciones
+	 */
 	public void cargarNuevoCrucigrama(char[][] solucion, int[][][] indices, String[] palabrasH, String[] palabrasV)
 	{
 		indicePalabras = indices;
@@ -130,6 +183,12 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		configurarDescripciones(palabrasH, palabrasV);
 	}
 	
+	/**
+	 * Colorea de verde si la palabra horizontal es correcta, de blanco si no
+	 * @param palabra palabra a colorear
+	 * @param esCorrecta si la palabra es correcta o no
+	 * @throws Exception lanza excepción si no se ha cargado un crucigrama
+	 */
 	public void colorearPalabraH(int palabra, boolean esCorrecta) throws Exception
 	{
 		boolean finalizado = false;
@@ -151,6 +210,12 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		}
 	}
 	
+	/**
+	 * Colorea de verde si la palabra vertical es correcta, de blanco si no
+	 * @param palabra palabra a colorear
+	 * @param esCorrecta si la palabra es correcta o no
+	 * @throws Exception lanza excepción si no se ha cargado un crucigrama
+	 */
 	public void colorearPalabraV(int palabra, boolean esCorrecta) throws Exception
 	{
 		boolean finalizado = false;
@@ -172,7 +237,11 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		}
 	}
 
-	public void actionPerformed(Document e)
+	/**
+	 * Ejecuta la acción cuando se cambia el texto de un recuadro
+	 * @param e Documento del evento
+	 */
+	private void jugar(Document e)
 	{
 		int posicionX = Integer.parseInt((String) e.getProperty("x"));
 		int posicionY = Integer.parseInt((String) e.getProperty("y"));
@@ -184,22 +253,29 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 
 	@Override
 	public void changedUpdate(DocumentEvent e) {
-		actionPerformed(e.getDocument());
+		jugar(e.getDocument());
 		
 	}
 
 	@Override
 	public void insertUpdate(DocumentEvent e) {
-		actionPerformed(e.getDocument());
+		jugar(e.getDocument());
 		
 	}
 
 	@Override
 	public void removeUpdate(DocumentEvent e) {
-		actionPerformed(e.getDocument());
+		jugar(e.getDocument());
 		
 	}
 
+	/**
+	 * Soluciona todo el tablero <br>
+	 * Pinta de verde
+	 * @param letras matriz con valores que indican si un recuadro está acertado o no
+	 * @param solucion matriz con la solución del crucigrama
+	 * @throws Exception lanza excepción si no se ha cargado el crucigrama
+	 */
 	public void solucionar(boolean[][] letras, char[][] solucion) throws Exception
 	{
 		for(int i = 0; i < filas; i++)
@@ -222,6 +298,10 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		}
 	}
 	
+	/**
+	 * Limpia el tablero
+	 * @throws Exception lanza excepción si no se ha cargado el crucigrama
+	 */
 	public void limpiar() throws Exception
 	{
 		if(pnlCrucigrama != null)

@@ -4,32 +4,82 @@ import java.io.FileInputStream;
 import java.io.File;
 import java.util.Properties;
 
+/**
+ * Representa un juego de crucigrama
+ * @author jj.castro10
+ *
+ */
 public final class Crucigrama
 {
-	
+	/**
+	 * Constante para identificar palabras horizontales en las matrices
+	 */
 	public static final int HORIZONTALES = 0;
+	/**
+	 * Constante para identificar palabras verticales en las matrices
+	 */
 	public static final int VERTICALES = 1;
 	
+	/**
+	 * Constante para identificar las palabras en las matrices
+	 */
 	public static final int PALABRAS = 0;
+	/**
+	 * Constante para identificar las descripciones en las matrices
+	 */
 	public static final int DESCRIPCIONES = 1;
 	
+	/**
+	 * Propiedades del crucigrama
+	 */
 	private Properties propiedades;
 	
-	public int filas;
-	public int columnas;
+	/**
+	 * Número de filas
+	 */
+	private int filas;
+	/**
+	 * Número de columnas
+	 */
+	private int columnas;
 	
-	public char[][] solucion;
-	public char[][] casillas;
-	public int[][][] indicePalabras;
+	/**
+	 * Matriz con la solución del crucigrama
+	 */
+	private char[][] solucion;
+	/**
+	 * Matriz con las casillas vacías del crucigrama
+	 */
+	private char[][] casillas;
+	/**
+	 * Matriz con las posiciones y números de las palabras horizontales y verticales
+	 */
+	private int[][][] indicePalabras;
 	
-	public String[][] palabrasH;
-	public String[][] palabrasV;
+	/**
+	 * Matriz con las palabras horizontales y sus descripciones
+	 */
+	private String[][] palabrasH;
+	/**
+	 * Matriz con las palabras verticales y sus descripciones
+	 */
+	private String[][] palabrasV;
 	
+	/**
+	 * Crea un nuevo crucigrama
+	 * @param archivo archivo del que se obtendrán las propiedades
+	 * @throws Exception lanza excepción si no es posible leer el archivo
+	 */
 	public Crucigrama(File archivo) throws Exception
 	{
 		cargar(archivo);
 	}
 	
+	/**
+	 * Valida una palabra horizontal
+	 * @param palabra número de la palabra a validar
+	 * @return true si la palabra es correcta, false de lo contrario
+	 */
 	public boolean validarHorizontal(int palabra)
 	{
 		String palabraEnCasillas = "";
@@ -53,6 +103,11 @@ public final class Crucigrama
 		return palabrasH[PALABRAS][palabra-1].equals(palabraEnCasillas);
 	}
 	
+	/**
+	 * Valida una palabra vertical
+	 * @param palabra número de la palabra a validar
+	 * @return true si la palabra es correcta, false de lo contrario
+	 */
 	public boolean validarVertical(int palabra)
 	{
 		String palabraEnCasillas = "";
@@ -76,6 +131,12 @@ public final class Crucigrama
 		return palabrasV[PALABRAS][palabra-1].equals(palabraEnCasillas);
 	}
 	
+	/**
+	 * Inserta un valor en las casillas del juego
+	 * @param fila fila de la entrada
+	 * @param columna columna de la entrada
+	 * @param entrada valor a entrar
+	 */
 	public void jugar(int fila, int columna, String entrada)
 	{
 		char[] letra = entrada.toUpperCase().toCharArray();
@@ -85,51 +146,74 @@ public final class Crucigrama
 			casillas[fila][columna] = '!';
 	}
 	
-	public int darNumeroDeFilas()
-	{
-		return filas;
-	}
-	
-	public int darNumeroDeColumnas()
-	{
-		return columnas;
-	}
-	
+	/**
+	 * Retorna el numero de palabras verticales
+	 * @return numero de palabras verticales
+	 */
 	public int darNumeroDePalabrasV()
 	{
 		return palabrasV[0].length;
 	}
 	
+	/**
+	 * Retorna el numero de palabras horizontales
+	 * @return numero de palabras horizontales
+	 */
 	public int darNumeroDePalabrasH()
 	{
 		return palabrasH[0].length;
 	}
 	
+	/**
+	 * Retorna las casillas del juego
+	 * @return casillas del juego
+	 */
 	public char[][] darCasillas()
 	{
 		return casillas;
 	}
 	
+	/**
+	 * Retorna una matriz con la solución del juego
+	 * @return solución del juego
+	 */
 	public char[][] darSolucion()
 	{
 		return solucion;
 	}
 	
+	/**
+	 * Retorna una matriz con los números y posiciones de las palabras
+	 * @return números y posiciones de las palabras
+	 */
 	public int[][][] darIndices()
 	{
 		return indicePalabras;
 	}
 	
+	/**
+	 * Retorna un arreglo con las descripciones de las palabras horizontales
+	 * @return descripciones de las palabras horizontales
+	 */
 	public String[] darDescripcionesPalabrasH()
 	{
 		return palabrasH[DESCRIPCIONES];
 	}
 	
+	/**
+	 * Retorna un arreglo con las descripciones de las palabras verticales
+	 * @return descripciones de las palabras verticales
+	 */
 	public String[] darDescripcionesPalabrasV()
 	{
 		return palabrasV[DESCRIPCIONES];
 	}
 	
+	/**
+	 * Carga las propiedades de un archivo, inicializa las propiedades y crea el crucigrama
+	 * @param archivo archivo a cargar
+	 * @throws Exception lanza excepción si el archivo no pudo ser cargado
+	 */
 	public void cargar(File archivo) throws Exception
 	{
 		propiedades = loadProperties(archivo);
@@ -167,6 +251,12 @@ public final class Crucigrama
 		configurarPalabrasVerticales();
 	}
 	
+	/**
+	 * Carga las propiedades de un archivo
+	 * @param archivo archivo a cargar
+	 * @return propiedades cargadas 
+	 * @throws Exception lanza excepción si el archivo no pudo ser cargado
+	 */
 	private Properties loadProperties(File archivo) throws Exception
 	{
 		Properties prop = new Properties();
@@ -183,6 +273,9 @@ public final class Crucigrama
 		return prop;
 	}
 	
+	/**
+	 * Configura las palabras horizontales
+	 */
 	private void configurarPalabrasHorizontales()
 	{
 		for(int i = 0; i < palabrasH[0].length; i++)
@@ -220,6 +313,9 @@ public final class Crucigrama
 		}
 	}
 	
+	/**
+	 * Configura las palabras verticales
+	 */
 	private void configurarPalabrasVerticales()
 	{
 		for(int i = 0; i < palabrasV[0].length; i++)
@@ -257,6 +353,10 @@ public final class Crucigrama
 		}
 	}
 	
+	/**
+	 * Crea una matriz con valores que indican si una posición es correcta o no
+	 * @return valores que indican si una posición es correcta o no
+	 */
 	public boolean[][] compararLetraPorLetra()
 	{
 		boolean[][] letraPorLetra = new boolean[filas][columnas];
