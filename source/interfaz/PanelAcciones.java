@@ -92,5 +92,9 @@ public class PanelAcciones extends JPanel implements ActionListener
 		{
 			interfaz.validarPalabrasVerticales();
 		}
+		else if(comando.equals(SOLUCIONAR))
+		{
+			interfaz.solucionar();
+		}
 	}
 }
