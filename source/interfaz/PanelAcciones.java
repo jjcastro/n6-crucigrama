@@ -96,5 +96,9 @@ public class PanelAcciones extends JPanel implements ActionListener
 		{
 			interfaz.solucionar();
 		}
+		else if(comando.equals(LIMPIAR))
+		{
+			interfaz.limpiar();
+		}
 	}
 }

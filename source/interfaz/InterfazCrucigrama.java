@@ -111,4 +111,9 @@ public class InterfazCrucigrama extends JFrame
 			JOptionPane.showMessageDialog(this, "Debe cargar el juego antes de validar", "Error al validar", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+
+	public void limpiar()
+	{
+		pnlPrincipal.limpiar();
+	}
 }
