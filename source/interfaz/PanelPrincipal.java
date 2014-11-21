@@ -211,7 +211,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 					{
 						campos[i][j].setBackground(Color.RED);
 					}
-					campos[i][j].setText("" + solucion[i][j]);
+					if(solucion[i][j] != '$') campos[i][j].setText("" + solucion[i][j]);
 				}
 			}
 		}
