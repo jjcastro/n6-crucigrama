@@ -103,6 +103,7 @@ public class InterfazCrucigrama extends JFrame
 		{
 			for(int i = 1; i < crucigrama.darNumeroDePalabrasH() + 1; i++)
 			{
+				
 				pnlPrincipal.colorearPalabraH(i, crucigrama.validarHorizontal(i));
 			}
 		}
