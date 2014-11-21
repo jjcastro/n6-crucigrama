@@ -123,4 +123,18 @@ public class InterfazCrucigrama extends JFrame
 			JOptionPane.showMessageDialog(this, "Debe cargar el juego antes de limpiar", "Error al limpiar", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
+	public void opcion1()
+	{
+		String mensaje = "Respuesta 1";
+		
+		JOptionPane.showMessageDialog(this, mensaje, "Respuesta", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public void opcion2()
+	{
+		String mensaje = "Respuesta 1";
+		
+		JOptionPane.showMessageDialog(this, mensaje, "Respuesta", JOptionPane.INFORMATION_MESSAGE);
+	}
 }
