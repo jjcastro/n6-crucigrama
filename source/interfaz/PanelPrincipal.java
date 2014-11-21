@@ -216,4 +216,19 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 			}
 		}
 	}
+	
+	public void limpiar()
+	{
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				if(campos[i][j].getText() != "")
+				{
+					campos[i][j].setText("");
+					campos[i][j].setBackground(Color.WHITE);
+				}
+			}
+		}
+	}
 }
