@@ -197,6 +197,17 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 
 	public void solucionar(boolean[][] letras)
 	{
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				if(letras[i][j])
+				{
+					campos[i][j].setBackground(Color.GREEN);
+				}
+			}
+		}
+		
 		/*for(int i = 0; i < filas; i++)
 		{
 			for(int j = 0; j < columnas; j++)
