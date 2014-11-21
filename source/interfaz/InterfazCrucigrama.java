@@ -39,7 +39,7 @@ public class InterfazCrucigrama extends JFrame
 	 */
 	public InterfazCrucigrama()
 	{
-		setSize(780, 730);
+		setSize(780, 850);
 		setLayout(new BorderLayout());
 		
 		ImageIcon imagen = new ImageIcon("./data/imagenes/banner.jpg");
