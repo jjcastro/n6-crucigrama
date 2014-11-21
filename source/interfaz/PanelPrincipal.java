@@ -125,7 +125,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		configurarDescripciones(palabrasH, palabrasV);
 	}
 	
-	public void colorearPalabraH(int palabra, boolean esCorrecta)
+	public void colorearPalabraH(int palabra, boolean esCorrecta) throws Exception
 	{
 		boolean finalizado = false;
 		
@@ -146,7 +146,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		}
 	}
 	
-	public void colorearPalabraV(int palabra, boolean esCorrecta)
+	public void colorearPalabraV(int palabra, boolean esCorrecta) throws Exception
 	{
 		boolean finalizado = false;
 		
@@ -195,7 +195,7 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		
 	}
 
-	public void solucionar(boolean[][] letras, char[][] solucion)
+	public void solucionar(boolean[][] letras, char[][] solucion) throws Exception
 	{
 		for(int i = 0; i < filas; i++)
 		{
@@ -217,18 +217,22 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 		}
 	}
 	
-	public void limpiar()
+	public void limpiar() throws Exception
 	{
-		for(int i = 0; i < filas; i++)
+		if(pnlCrucigrama != null)
 		{
-			for(int j = 0; j < columnas; j++)
+			for(int i = 0; i < filas; i++)
 			{
-				if(campos[i][j].getText() != "")
+				for(int j = 0; j < columnas; j++)
 				{
-					campos[i][j].setText("");
-					campos[i][j].setBackground(Color.WHITE);
+					if(campos[i][j].getText() != "" && campos[i][j].isEnabled())
+					{
+						campos[i][j].setText("");
+						campos[i][j].setBackground(Color.WHITE);
+					}
 				}
 			}
 		}
+		else throw new NullPointerException();
 	}
 }

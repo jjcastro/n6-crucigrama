@@ -74,7 +74,7 @@ public class InterfazCrucigrama extends JFrame
 				pnlPrincipal.colorearPalabraH(i, crucigrama.validarHorizontal(i));
 			}
 		}
-		catch(NullPointerException e)
+		catch(Exception e)
 		{
 			JOptionPane.showMessageDialog(this, "Debe cargar el juego antes de validar", "Error al validar", JOptionPane.ERROR_MESSAGE);
 		}
@@ -89,7 +89,7 @@ public class InterfazCrucigrama extends JFrame
 				pnlPrincipal.colorearPalabraV(i, crucigrama.validarVertical(i));
 			}
 		}
-		catch(NullPointerException e)
+		catch(Exception e)
 		{
 			JOptionPane.showMessageDialog(this, "Debe cargar el juego antes de validar", "Error al validar", JOptionPane.ERROR_MESSAGE);
 		}
@@ -106,7 +106,7 @@ public class InterfazCrucigrama extends JFrame
 		{
 			pnlPrincipal.solucionar(crucigrama.compararLetraPorLetra(), crucigrama.darSolucion());
 		}
-		catch(NullPointerException e)
+		catch(Exception e)
 		{
 			JOptionPane.showMessageDialog(this, "Debe cargar el juego antes de validar", "Error al validar", JOptionPane.ERROR_MESSAGE);
 		}
@@ -114,6 +114,13 @@ public class InterfazCrucigrama extends JFrame
 
 	public void limpiar()
 	{
-		pnlPrincipal.limpiar();
+		try
+		{
+			pnlPrincipal.limpiar();
+		}
+		catch (Exception e)
+		{
+			JOptionPane.showMessageDialog(this, "Debe cargar el juego antes de limpiar", "Error al limpiar", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
