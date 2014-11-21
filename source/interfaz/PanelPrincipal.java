@@ -215,17 +215,5 @@ public class PanelPrincipal extends JPanel implements DocumentListener
 				}
 			}
 		}
-		
-		/*for(int i = 0; i < filas; i++)
-		{
-			for(int j = 0; j < columnas; j++)
-			{
-				String out = ""+letras[i][j];
-				if(out.equals("true")) out += " ";
-				System.out.print(out + " ");
-			}
-			
-			System.out.println();
-		}*/
 	}
 }
