@@ -1,3 +1,3 @@
-n6_crucigrama
+Crucigrama
 =============
-Ejercicio final nivel 6 APO
+Simple crossword application, written in java using the swing GUI framework, built as a final project for the class ISIS1206.
